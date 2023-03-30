@@ -9,5 +9,7 @@ package DAO;
  * @author Admin
  */
 public class SanPham_DAO {
-    
+    public static void main(String[] args){
+        System.out.println("hello");
+    }
 }
