@@ -15,7 +15,7 @@ public class NhanVien {
     int ID;
     String TenNhanVien;
     String GioiTinh;
-    Date NgaySinh;
+    String NgaySinh;
     String SoDienThoai;
     String Email;
     String DiaChi;
@@ -24,7 +24,7 @@ public class NhanVien {
         
     }
 
-    public NhanVien(int ID, String TenNhanVien, String GioiTinh, Date NgaySinh, String SoDienThoai, String Email, String DiaChi) {
+    public NhanVien(int ID, String TenNhanVien, String GioiTinh, String NgaySinh, String SoDienThoai, String Email, String DiaChi) {
         this.ID = ID;
         this.TenNhanVien = TenNhanVien;
         this.GioiTinh = GioiTinh;
@@ -58,11 +58,11 @@ public class NhanVien {
         this.GioiTinh = GioiTinh;
     }
 
-    public Date getNgaySinh() {
+    public String getNgaySinh() {
         return NgaySinh;
     }
 
-    public void setNgaySinh(Date NgaySinh) {
+    public void setNgaySinh(String NgaySinh) {
         this.NgaySinh = NgaySinh;
     }
 

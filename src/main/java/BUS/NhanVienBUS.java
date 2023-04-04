@@ -30,4 +30,8 @@ public class NhanVienBUS {
         NhanVien nhanVien = nhanVienDAO.getNhanVien(ID);
         return nhanVien;
     }
+    public int saveNhanvien(NhanVien nhanVien) throws SQLException{
+        int result = nhanVienDAO.saveNhanvien(nhanVien);
+        return result;
+    }
 }

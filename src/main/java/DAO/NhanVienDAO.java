@@ -53,7 +53,8 @@ public class NhanVienDAO extends MyDatabaseManager{
                 nhanVien.setID(rs.getInt("ID"));
                 nhanVien.setTenNhanVien(rs.getString("TenNhanVien"));
                 nhanVien.setGioiTinh(rs.getString("GioiTinh"));
-                nhanVien.setNgaySinh((Date) rs.getDate("NgaySinh"));
+//                nhanVien.setNgaySinh((Date) rs.getDate("NgaySinh"));
+                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
                 nhanVien.setSoDienThoai(rs.getString("SoDienThoai"));
                 nhanVien.setEmail(rs.getString("Email"));
                 nhanVien.setDiaChi(rs.getString("DiaChi"));
@@ -75,13 +76,28 @@ public class NhanVienDAO extends MyDatabaseManager{
                 nhanVien.setID(rs.getInt("ID"));
                 nhanVien.setTenNhanVien(rs.getString("TenNhanVien"));
                 nhanVien.setGioiTinh(rs.getString("GioiTinh"));
-                nhanVien.setNgaySinh(rs.getDate("NgaySinh"));
+//                nhanVien.setNgaySinh(rs.getDate("NgaySinh"));
+                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
                 nhanVien.setSoDienThoai(rs.getString("SoDienThoai"));
                 nhanVien.setEmail(rs.getString("Email"));
                 nhanVien.setDiaChi(rs.getString("DiaChi"));
             }
         }
         return nhanVien;
+    }
+    public int saveNhanvien(NhanVien nhanVien) throws SQLException{
+        String sql = "Insert nhanvien (ID,TenNhanVien,GioiTinh,NgaySinh,SoDienThoai,Email,DiaChi) value (?,?,?,?,?,?,?)";
+        PreparedStatement p = NhanVienDAO.connectDB().prepareStatement(sql);
+        p.setInt(1, nhanVien.getID());
+        p.setString(2, nhanVien.getTenNhanVien());
+        p.setString(3, nhanVien.getGioiTinh());
+//        p.setDate(4, nhanVien.getNgaySinh());
+        p.setString(4, nhanVien.getNgaySinh());
+        p.setString(5, nhanVien.getSoDienThoai());
+        p.setString(6, nhanVien.getEmail());
+        p.setString(7, nhanVien.getDiaChi());
+        int result = p.executeUpdate();
+        return result;
     }
     
     public static void main(String[] args) {
