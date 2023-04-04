@@ -34,4 +34,12 @@ public class NhanVienBUS {
         int result = nhanVienDAO.saveNhanvien(nhanVien);
         return result;
     }
+    public int updateNhanvien(NhanVien nhanVien) throws SQLException{
+        int result = nhanVienDAO.updateNhanVien(nhanVien);
+        return result;
+    }
+    public boolean deleteNhanvien(NhanVien nhanVien) throws SQLException {
+        boolean result = nhanVienDAO.deleteNhanVien(nhanVien);
+        return result;
+    }
 }

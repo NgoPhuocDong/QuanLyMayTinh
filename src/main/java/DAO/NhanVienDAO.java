@@ -99,6 +99,30 @@ public class NhanVienDAO extends MyDatabaseManager{
         int result = p.executeUpdate();
         return result;
     }
+    public  int updateNhanVien (NhanVien nhanVien) throws SQLException{
+        String sql = "Update nhanvien SET TenNhanVien = ? , GioiTinh = ? , NgaySinh = ? , SoDienThoai = ? , Email = ?, DiaChi = ? "
+                + " WHERE ID = ?";
+        PreparedStatement p = NhanVienDAO.connectDB().prepareStatement(sql);
+        
+        p.setString(1, nhanVien.getTenNhanVien());
+        p.setString(2, nhanVien.getGioiTinh());
+//        p.setDate(4, nhanVien.getNgaySinh());
+        p.setString(3, nhanVien.getNgaySinh());
+        p.setString(4, nhanVien.getSoDienThoai());
+        p.setString(5, nhanVien.getEmail());
+        p.setString(6, nhanVien.getDiaChi());
+        p.setInt(7, nhanVien.getID());
+        int result = p.executeUpdate();
+        return result;
+    }
+    public boolean deleteNhanVien(NhanVien nhanVien) throws SQLException {
+        String query = "DELETE FROM nhanvien WHERE ID = ?";
+        PreparedStatement p = NhanVienDAO.connectDB().prepareStatement(query);
+        p.setInt(1, nhanVien.ID);
+        int result = p.executeUpdate();
+
+        return true;
+    }
     
     public static void main(String[] args) {
         NhanVienDAO nvdao = new NhanVienDAO();
