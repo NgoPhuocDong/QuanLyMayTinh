@@ -4,13 +4,16 @@
  */
 package DAO;
 
+import DTO.NhanVien;
 import com.mysql.cj.xdevapi.PreparableStatement;
 import com.mysql.cj.xdevapi.Result;
 import java.sql.Date;
+import DTO.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +24,7 @@ import javax.xml.crypto.Data;
  * @author tranconghung
  */
 public class NhanVienDAO extends MyDatabaseManager{
+    NhanVien nhanVien = new NhanVien();
     public NhanVienDAO(){
         NhanVienDAO.connectDB();
     }
@@ -118,12 +122,34 @@ public class NhanVienDAO extends MyDatabaseManager{
     public boolean deleteNhanVien(NhanVien nhanVien) throws SQLException {
         String query = "DELETE FROM nhanvien WHERE ID = ?";
         PreparedStatement p = NhanVienDAO.connectDB().prepareStatement(query);
-        p.setInt(1, nhanVien.ID);
+        p.setInt(1, nhanVien.getID());
         int result = p.executeUpdate();
 
         return true;
     }
-    
+    public List findNhanVien(String TenNhanVien) throws SQLException{
+        String sql = "SELECT * FROM nhanvien WHERE  TenNhanVien LIKE ?";
+        PreparedStatement p = NhanVienDAO.connectDB().prepareStatement(sql);
+        p.setString(1, "%" + TenNhanVien + "%");
+        ResultSet rs = p.executeQuery();
+        List list = new ArrayList();
+        
+        if(rs != null){
+            int i = 1;
+            while (rs.next()) {
+                NhanVien nhanVien = new NhanVien();
+                nhanVien.setID(rs.getInt("ID"));
+                nhanVien.setTenNhanVien(rs.getString("TenNhanVien"));
+                nhanVien.setGioiTinh(rs.getString("GioiTinh"));
+                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
+                nhanVien.setSoDienThoai(rs.getString("SoDienThoai"));
+                nhanVien.setEmail(rs.getString("Email"));
+                nhanVien.setDiaChi(rs.getString("DiaChi"));
+                list.add(nhanVien);
+            }
+        }
+        return list;
+    }
     public static void main(String[] args) {
         NhanVienDAO nvdao = new NhanVienDAO();
         try {

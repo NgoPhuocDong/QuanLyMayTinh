@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+import DTO.NhanVien;
 import DAO.*;
 import BUS.*;
 import java.beans.Customizer;
@@ -122,8 +123,21 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         jLabel7.setText("Địa chỉ");
 
         jtfTimkiem.setText("Tìm kiếm\n");
+        jtfTimkiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtfTimkiemKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfTimkiemKeyReleased(evt);
+            }
+        });
 
         btnTimkiem.setText("Tìm Kiếm");
+        btnTimkiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimkiemActionPerformed(evt);
+            }
+        });
 
         btnSave.setText("Lưu");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -368,6 +382,51 @@ public class NhanVienJFrame extends javax.swing.JFrame {
             Logger.getLogger(NhanVienJFrame.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnTimkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimkiemActionPerformed
+        try {
+            NhanVienBUS nhanVienBUS = new NhanVienBUS();
+            List<NhanVien> list = nhanVienBUS.findNhanVien(jtfTimkiem.getText());
+            
+            if(list.isEmpty()){
+                JOptionPane.showMessageDialog(this,"Nhân viên không tồn tại" , "Cảnh báo", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                for(NhanVien nv : list){
+                    jtfHovaTenNhanvien.setText(nv.getTenNhanVien());
+                    jtfGioitinhNhanvien.setText(nv.getGioiTinh());
+                    jtfNgaysinhNhanvien.setText(nv.getNgaySinh());
+                    jtfSdtNhanvien.setText(nv.getSoDienThoai());
+                    jtfEmailNhanvien.setText(nv.getEmail());
+                    jtfDiachiNhanvien.setText(nv.getDiaChi());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this,"Nhân viên không tồn tại" , "Cảnh báo", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnTimkiemActionPerformed
+
+    private void jtfTimkiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfTimkiemKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfTimkiemKeyPressed
+
+    private void jtfTimkiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfTimkiemKeyReleased
+        try {
+            NhanVienBUS nhanVienBUS = new NhanVienBUS();
+            List<NhanVien> list = nhanVienBUS.findNhanVien(jtfTimkiem.getText());
+            initTable();
+            for(NhanVien nhanVien : list){
+                jtbNhanVienmodel.addRow(new Object[]{
+                    nhanVien.getID(),nhanVien.getTenNhanVien(),nhanVien.getGioiTinh(),nhanVien.getNgaySinh(),nhanVien.getSoDienThoai(),
+                    nhanVien.getEmail(),nhanVien.getDiaChi()
+                });
+            }
+        } catch (Exception e) {
+             e.printStackTrace();
+            JOptionPane.showMessageDialog(this,"Nhân viên không tồn tại" , "Cảnh báo", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jtfTimkiemKeyReleased
 
     /**
      * @param args the command line arguments

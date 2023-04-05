@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package BUS;
+import DTO.NhanVien;
 import DAO.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,5 +42,10 @@ public class NhanVienBUS {
     public boolean deleteNhanvien(NhanVien nhanVien) throws SQLException {
         boolean result = nhanVienDAO.deleteNhanVien(nhanVien);
         return result;
+    }
+    public List findNhanVien(String TenNhanVien) throws SQLException{
+        List list = new ArrayList();
+        list = nhanVienDAO.findNhanVien(TenNhanVien);
+        return list;
     }
 }
