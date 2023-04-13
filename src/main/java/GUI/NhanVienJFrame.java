@@ -105,9 +105,6 @@ public class NhanVienJFrame extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtbNhanVienMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jtbNhanVienMouseEntered(evt);
-            }
         });
         jScrollPane1.setViewportView(jtbNhanVien);
 
@@ -334,7 +331,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jtbNhanVienMouseClicked
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-            try {
+        try {
             NhanVien nhanVien = new NhanVien();
             nhanVien = this.nhanVienUpdate;
             nhanVien.setTenNhanVien(jtfHovaTenNhanvien.getText());
@@ -430,10 +427,6 @@ public class NhanVienJFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Nhân viên không tồn tại" , "Cảnh báo", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jtfTimkiemKeyReleased
-
-    private void jtbNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbNhanVienMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtbNhanVienMouseEntered
 
     /**
      * @param args the command line arguments
