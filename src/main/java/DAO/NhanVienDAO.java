@@ -38,7 +38,7 @@ public class NhanVienDAO extends MyDatabaseManager{
                  System.out.print(i + "\t" + rs.getInt("ID"));
                 System.out.println("\t\t" + rs.getString("TenNhanVien")
                         + "\t\t\t" + rs.getString("GioiTinh")
-                        + "\t\t\t" + rs.getString("NgaySinh")
+                        + "\t\t\t" + rs.getDate("NgaySinh")
                         + "\t\t\t" + rs.getString("SoDienThoai")
                         + "\t\t\t" + rs.getString("Email")
                         + "\t\t\t" + rs.getString("DiaChi"));
@@ -57,8 +57,8 @@ public class NhanVienDAO extends MyDatabaseManager{
                 nhanVien.setID(rs.getInt("ID"));
                 nhanVien.setTenNhanVien(rs.getString("TenNhanVien"));
                 nhanVien.setGioiTinh(rs.getString("GioiTinh"));
-//                nhanVien.setNgaySinh((Date) rs.getDate("NgaySinh"));
-                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
+                nhanVien.setNgaySinh( rs.getDate("NgaySinh"));
+//                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
                 nhanVien.setSoDienThoai(rs.getString("SoDienThoai"));
                 nhanVien.setEmail(rs.getString("Email"));
                 nhanVien.setDiaChi(rs.getString("DiaChi"));
@@ -80,8 +80,8 @@ public class NhanVienDAO extends MyDatabaseManager{
                 nhanVien.setID(rs.getInt("ID"));
                 nhanVien.setTenNhanVien(rs.getString("TenNhanVien"));
                 nhanVien.setGioiTinh(rs.getString("GioiTinh"));
-//                nhanVien.setNgaySinh(rs.getDate("NgaySinh"));
-                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
+                nhanVien.setNgaySinh(rs.getDate("NgaySinh"));
+//                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
                 nhanVien.setSoDienThoai(rs.getString("SoDienThoai"));
                 nhanVien.setEmail(rs.getString("Email"));
                 nhanVien.setDiaChi(rs.getString("DiaChi"));
@@ -95,8 +95,8 @@ public class NhanVienDAO extends MyDatabaseManager{
         p.setInt(1, nhanVien.getID());
         p.setString(2, nhanVien.getTenNhanVien());
         p.setString(3, nhanVien.getGioiTinh());
-//        p.setDate(4, nhanVien.getNgaySinh());
-        p.setString(4, nhanVien.getNgaySinh());
+        p.setDate(4, nhanVien.getNgaySinh());
+//        p.setString(4, nhanVien.getNgaySinh());
         p.setString(5, nhanVien.getSoDienThoai());
         p.setString(6, nhanVien.getEmail());
         p.setString(7, nhanVien.getDiaChi());
@@ -110,8 +110,8 @@ public class NhanVienDAO extends MyDatabaseManager{
         
         p.setString(1, nhanVien.getTenNhanVien());
         p.setString(2, nhanVien.getGioiTinh());
-//        p.setDate(4, nhanVien.getNgaySinh());
-        p.setString(3, nhanVien.getNgaySinh());
+        p.setDate(3, nhanVien.getNgaySinh());
+//        p.setString(3, nhanVien.getNgaySinh());
         p.setString(4, nhanVien.getSoDienThoai());
         p.setString(5, nhanVien.getEmail());
         p.setString(6, nhanVien.getDiaChi());
@@ -141,7 +141,8 @@ public class NhanVienDAO extends MyDatabaseManager{
                 nhanVien.setID(rs.getInt("ID"));
                 nhanVien.setTenNhanVien(rs.getString("TenNhanVien"));
                 nhanVien.setGioiTinh(rs.getString("GioiTinh"));
-                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
+                nhanVien.setNgaySinh(rs.getDate("NgaySinh"));
+//                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
                 nhanVien.setSoDienThoai(rs.getString("SoDienThoai"));
                 nhanVien.setEmail(rs.getString("Email"));
                 nhanVien.setDiaChi(rs.getString("DiaChi"));

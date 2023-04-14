@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -67,6 +68,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinField1 = new com.toedter.components.JSpinField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbNhanVien = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -87,6 +89,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jtfNgaysinhNhanvien = new javax.swing.JTextField();
+        jdtNgaySinh = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,6 +166,14 @@ public class NhanVienJFrame extends javax.swing.JFrame {
             }
         });
 
+        jtfNgaysinhNhanvien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfNgaysinhNhanvienActionPerformed(evt);
+            }
+        });
+
+        jdtNgaySinh.setDateFormatString("dd/MM/yyyy");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -189,21 +200,27 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                             .addComponent(jtfDiachiNhanvien, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(jtfEmailNhanvien, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
                             .addComponent(jtfSdtNhanvien)
-                            .addComponent(jtfNgaysinhNhanvien))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jdtNgaySinh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jtfTimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jtfTimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnUpdate)
+                                .addGap(46, 46, 46)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTimkiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnUpdate)
-                        .addGap(46, 46, 46)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnTimkiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(75, 75, 75)
+                        .addComponent(jtfNgaysinhNhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,10 +236,10 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jtfGioitinhNhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jtfNgaysinhNhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
+                            .addComponent(jdtNgaySinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jtfSdtNhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,7 +250,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jtfDiachiNhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtfDiachiNhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfNgaysinhNhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtfTimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -263,7 +281,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -272,6 +290,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         
+//        JTextField editcus = (JTextField) jdtNgaySinh.getEditor().getEditorComponent();
         if(jtfHovaTenNhanvien.getText().isBlank() || jtfGioitinhNhanvien.getText().isBlank() || jtfNgaysinhNhanvien.getText()== null
             || jtfSdtNhanvien.getText().isBlank() || jtfEmailNhanvien.getText().isBlank() || jtfDiachiNhanvien.getText().isBlank()){
         JOptionPane.showMessageDialog(this, "Không được điền thiếu thông tin nhân viên");
@@ -283,7 +302,10 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                 nhanVien.setTenNhanVien(jtfHovaTenNhanvien.getText());
                 nhanVien.setGioiTinh(jtfGioitinhNhanvien.getText());
 //                nhanVien.setNgaySinh(Date.valueOf(jtfNgaysinhNhanvien.getDate().toString()));
-                nhanVien.setNgaySinh(String.valueOf(jtfNgaysinhNhanvien.getText()));
+//                nhanVien.setNgaySinh(String.valueOf(jtfNgaysinhNhanvien.getText()));
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String finddate =  sdf.format(jdtNgaySinh.getDate()).toString();
+                nhanVien.setNgaySinh( Date.valueOf(finddate));
                 nhanVien.setSoDienThoai(jtfSdtNhanvien.getText());
                 nhanVien.setEmail(jtfEmailNhanvien.getText());
                 nhanVien.setDiaChi(jtfDiachiNhanvien.getText());
@@ -292,7 +314,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Thêm nhân viên thành công");
                     jtfHovaTenNhanvien.setText("");
                     jtfGioitinhNhanvien.setText("");
-                    jtfNgaysinhNhanvien.setText("");
+                    //jdtNgaySinh.setDate("");
+                    jdtNgaySinh.cleanup();
                     jtfSdtNhanvien.setText("");
                     jtfEmailNhanvien.setText("");
                     jtfDiachiNhanvien.setText("");
@@ -321,14 +344,13 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                 if(nv != null){
                     jtfHovaTenNhanvien.setText(nv.getTenNhanVien());
                     jtfGioitinhNhanvien.setText(nv.getGioiTinh());
-                    jtfNgaysinhNhanvien.setText(nv.getNgaySinh());
+                    jdtNgaySinh.setDate(nv.getNgaySinh());
                     jtfSdtNhanvien.setText(nv.getSoDienThoai());
                     jtfEmailNhanvien.setText(nv.getEmail());
                     jtfDiachiNhanvien.setText(nv.getDiaChi());
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(this, e.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jtbNhanVienMouseClicked
@@ -339,7 +361,10 @@ public class NhanVienJFrame extends javax.swing.JFrame {
             nhanVien = this.nhanVienUpdate;
             nhanVien.setTenNhanVien(jtfHovaTenNhanvien.getText());
             nhanVien.setGioiTinh(jtfGioitinhNhanvien.getText());
-            nhanVien.setNgaySinh(jtfNgaysinhNhanvien.getText());
+//            nhanVien.setNgaySinh(jtfNgaysinhNhanvien.getText());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String finddate =  sdf.format(jdtNgaySinh.getDate()).toString();
+            nhanVien.setNgaySinh( Date.valueOf(finddate));
             nhanVien.setSoDienThoai(jtfSdtNhanvien.getText()); 
             nhanVien.setEmail(jtfEmailNhanvien.getText());
             nhanVien.setDiaChi(jtfDiachiNhanvien.getText());
@@ -353,7 +378,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Update thành công");
                 jtfHovaTenNhanvien.setText("");
                 jtfGioitinhNhanvien.setText("");
-                jtfNgaysinhNhanvien.setText("");
+                jdtNgaySinh.cleanup();
                 jtfSdtNhanvien.setText("");
                 jtfEmailNhanvien.setText("");
                 jtfDiachiNhanvien.setText("");
@@ -398,7 +423,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
                 for(NhanVien nv : list){
                     jtfHovaTenNhanvien.setText(nv.getTenNhanVien());
                     jtfGioitinhNhanvien.setText(nv.getGioiTinh());
-                    jtfNgaysinhNhanvien.setText(nv.getNgaySinh());
+//                    jtfNgaysinhNhanvien.setText(nv.getNgaySinh());
+                    jdtNgaySinh.setDate(nv.getNgaySinh());
                     jtfSdtNhanvien.setText(nv.getSoDienThoai());
                     jtfEmailNhanvien.setText(nv.getEmail());
                     jtfDiachiNhanvien.setText(nv.getDiaChi());
@@ -434,6 +460,10 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     private void jtbNhanVienMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtbNhanVienMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jtbNhanVienMouseEntered
+
+    private void jtfNgaysinhNhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNgaysinhNhanvienActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfNgaysinhNhanvienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -483,6 +513,8 @@ public class NhanVienJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private com.toedter.components.JSpinField jSpinField1;
+    private com.toedter.calendar.JDateChooser jdtNgaySinh;
     private javax.swing.JTable jtbNhanVien;
     private javax.swing.JTextField jtfDiachiNhanvien;
     private javax.swing.JTextField jtfEmailNhanvien;

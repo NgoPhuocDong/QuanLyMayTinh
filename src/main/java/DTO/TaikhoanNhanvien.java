@@ -4,6 +4,8 @@
  */
 package DTO;
 
+import java.sql.Date;
+
 /**
  *
  * @author tranconghung
@@ -18,13 +20,15 @@ public class TaikhoanNhanvien extends NhanVien{
         super();
     }
     
-    public TaikhoanNhanvien(String TenDangNhap, String MatKhau, int TrangThai, String AnhDaiDien, int ID, String TenNhanVien, String GioiTinh, String NgaySinh, String SoDienThoai, String Email, String DiaChi) {
+    public TaikhoanNhanvien(String TenDangNhap, String MatKhau, int TrangThai, String AnhDaiDien, int ID, String TenNhanVien, String GioiTinh, Date NgaySinh, String SoDienThoai, String Email, String DiaChi) {
         super(ID, TenNhanVien, GioiTinh, NgaySinh, SoDienThoai, Email, DiaChi);
         this.TenDangNhap = TenDangNhap;
         this.MatKhau = MatKhau;
         this.TrangThai = TrangThai;
         this.AnhDaiDien = AnhDaiDien;
     }
+
+ 
     
     
 
