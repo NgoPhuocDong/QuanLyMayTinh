@@ -64,7 +64,7 @@ public class TaikhoanNhanvien extends NhanVien{
         return AnhDaiDien;
     }
 
-    public void setAnhDaiDien(byte [] AnhDaiDien) {
+    public void setAnhDaiDien(byte[] AnhDaiDien) {
         this.AnhDaiDien = AnhDaiDien;
     }
 
