@@ -198,7 +198,7 @@
                               <Component id="lbTenTaiKhoan" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="txfTenTaiKhoan" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="19" max="32767" attributes="0"/>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbMatKhau" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="txfMatKhau" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -214,9 +214,9 @@
                               <Component id="lbDiaChi" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txfSDT" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="lbSDT" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="lbSDT" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">

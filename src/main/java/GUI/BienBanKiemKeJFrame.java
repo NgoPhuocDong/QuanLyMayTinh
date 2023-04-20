@@ -104,6 +104,11 @@ public class BienBanKiemKeJFrame extends javax.swing.JFrame {
         jLabel8.setText("Lý do");
 
         btnShow.setText("...");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout kGradientPanel1Layout = new javax.swing.GroupLayout(kGradientPanel1);
         kGradientPanel1.setLayout(kGradientPanel1Layout);
@@ -198,6 +203,10 @@ public class BienBanKiemKeJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnShowActionPerformed
 
     /**
      * @param args the command line arguments
