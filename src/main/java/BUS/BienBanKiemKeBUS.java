@@ -35,4 +35,12 @@ public class BienBanKiemKeBUS {
         int result = bienBanKiemKeDAO.addBienBanKiemKe(bbkk);
         return result;
     }
+    public int updateBienBanKiemKe(BienBanKiemKe bbkk) throws SQLException{
+        int result = bienBanKiemKeDAO.updateBienBanKiemKe(bbkk);
+        return result;
+    }
+    public boolean deleteBienBanKiemKe(BienBanKiemKe bbkk) throws SQLException{
+        boolean result = bienBanKiemKeDAO.deleteBienBanKiemKe(bbkk);
+        return result;
+    }
 }

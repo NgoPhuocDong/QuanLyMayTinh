@@ -67,7 +67,7 @@ public class BienBanKiemKeDAO extends MyDatabaseManager{
     public BienBanKiemKe getBienBanKiemKe(int ID) throws SQLException{
         String sql = "SELECT bienbankiemke.ID,IDNguoiLap,TenBienBan,NgayLap,SoLuongTonKho,SoLuongThucThe,ChenhLech,LyDo\n"+
                 "FROM bienbankiemke,nhanvien\n"+
-                "WHERE bienbankiemke.IDNguoiLap = nhanvien.ID";
+                "WHERE bienbankiemke.IDNguoiLap = nhanvien.ID AND bienbankiemke.ID = ?";
         PreparedStatement p = BienBanKiemKeDAO.connectDB().prepareStatement(sql);
         p.setInt(1, ID);
         ResultSet rs = p.executeQuery();
@@ -102,6 +102,29 @@ public class BienBanKiemKeDAO extends MyDatabaseManager{
         p.setString(8, bbkk.getLyDo());
         int result = p.executeUpdate();
         return result;
+    }
+    public int updateBienBanKiemKe(BienBanKiemKe bbkk) throws SQLException{
+        String sql = "Update bienbankiemke set IDNguoiLap=?,TenBienBan=?,NgayLap=?,SoLuongTonKho=?,SoLuongThucThe=?,ChenhLech=?,LyDo=?"
+                +"WHERE  ID=?";
+        PreparedStatement p = BienBanKiemKeDAO.connectDB().prepareCall(sql);
+        p.setInt(1, bbkk.getID());
+        p.setString(2, bbkk.getTenBienBan());
+        p.setDate(3,bbkk.getNgayLap());
+        p.setInt(4, bbkk.getSoLuongTonKho());
+        p.setInt(5, bbkk.getSoLuongThuc());
+        p.setInt(6, bbkk.getChenhLech());
+        p.setString(7, bbkk.getLyDo());
+        p.setInt(8, bbkk.getIdBienBan());
+        int result = p.executeUpdate();
+        return result;
+    }
+    public boolean deleteBienBanKiemKe(BienBanKiemKe bbkk)throws SQLException{
+        String query = "DELETE FROM bienbankiemke WHERE ID = ?";
+        PreparedStatement p = NhanVienDAO.connectDB().prepareStatement(query);
+        p.setInt(1, bbkk.getIdBienBan());
+        int result = p.executeUpdate();
+
+        return true;
     }
      public static void main(String[] args) {
         BienBanKiemKeDAO bienBanKiemKeDAO = new BienBanKiemKeDAO();
