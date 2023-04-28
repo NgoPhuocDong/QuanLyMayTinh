@@ -11,38 +11,38 @@ import javax.xml.crypto.Data;
  * @author VO THANH HOA
  */
 public class DonHangBan {
-    int id;
+    int ID;
     int idNhanVienLap;
     int idKhachHang;
     int idTrangThai;
-    Date ngayLap;
-    float tongTien;
+    Date NgayLap;
+    float TongTien;
 
     public DonHangBan() {
     }
 
-    public DonHangBan(int id, int idNhanVienLap, int idKhachHang, int idTrangThai, Date ngayLap, float tongTien) {
-        this.id = id;
+    public DonHangBan(int ID, int idNhanVienLap, int idKhachHang, int idTrangThai, Date NgayLap, float TongTien) {
+        this.ID = ID;
         this.idNhanVienLap = idNhanVienLap;
         this.idKhachHang = idKhachHang;
         this.idTrangThai = idTrangThai;
-        this.ngayLap = ngayLap;
-        this.tongTien = tongTien;
+        this.NgayLap = NgayLap;
+        this.TongTien = TongTien;
     }
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public int getIdNhanVienLap() {
         return idNhanVienLap;
     }
 
-    public void setIdNhanVienLap(int idNhanVien) {
+    public void setIdNhanVienLap(int idNhanVienLap) {
         this.idNhanVienLap = idNhanVienLap;
     }
 
@@ -63,19 +63,19 @@ public class DonHangBan {
     }
 
     public Date getNgayLap() {
-        return ngayLap;
+        return NgayLap;
     }
 
-    public void setNgayLap(Date ngayLap) {
-        this.ngayLap = ngayLap;
+    public void setNgayLap(Date NgayLap) {
+        this.NgayLap = NgayLap;
     }
 
     public float getTongTien() {
-        return tongTien;
+        return TongTien;
     }
 
-    public void setTongTien(float tongTien) {
-        this.tongTien = tongTien;
+    public void setTongTien(float TongTien) {
+        this.TongTien = TongTien;
     }
 
 }
