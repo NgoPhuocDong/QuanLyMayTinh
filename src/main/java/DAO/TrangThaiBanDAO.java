@@ -49,6 +49,7 @@ public class TrangThaiBanDAO extends MyDatabaseManager{
                 TrangThaiBan trangThai = new TrangThaiBan();
                 trangThai.setID(rs.getInt("ID"));
                 trangThai.setTenTrangThai(rs.getString("TenTrangThai"));
+                arrayList.add(trangThai);
             }
         }
         return  arrayList;
