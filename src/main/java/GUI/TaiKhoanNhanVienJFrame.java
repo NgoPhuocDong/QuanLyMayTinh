@@ -141,6 +141,12 @@ public class TaiKhoanNhanVienJFrame extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Tên tài khoản");
 
+        jtfUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfUsernameActionPerformed(evt);
+            }
+        });
+
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Mật khẩu");
 
@@ -433,6 +439,10 @@ try {
             Logger.getLogger(NhanVienJFrame.class.getName()).log(Level.SEVERE, null, e);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void jtfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfUsernameActionPerformed
 
     /**
      * @param args the command line arguments
