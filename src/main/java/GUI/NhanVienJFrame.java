@@ -39,7 +39,7 @@ public class NhanVienJFrame extends javax.swing.JFrame {
 
     private void initTable(){
         jtbNhanVienmodel = new DefaultTableModel();
-        jtbNhanVienmodel.setColumnIdentifiers(new String[] {"ID","TenNhanVien","GioiTinh","NgaySinh","SoDienThoai","Email","DiaChi"});
+        jtbNhanVienmodel.setColumnIdentifiers(new String[] {"ID","Tên nhân viên","GioiTinh","NgaySinh","SoDienThoai","Email","DiaChi"});
         jtbNhanVien.setModel(jtbNhanVienmodel);
     }
     private void loadData(){
