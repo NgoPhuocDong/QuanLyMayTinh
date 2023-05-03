@@ -969,7 +969,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jtfidSanPham;
     private javax.swing.JTextField jtfidTrangThai;
     // End of variables declaration//GEN-END:variables
-
+//Pham Hai Dang
     private void XuatExcel() {
        JFileChooser file = new JFileChooser(); //Khởi tạo JFileChooser
         file.setCurrentDirectory(new File(System.getProperty("user.home"))); 
