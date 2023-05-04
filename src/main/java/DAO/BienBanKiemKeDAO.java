@@ -126,6 +126,29 @@ public class BienBanKiemKeDAO extends MyDatabaseManager{
 
         return true;
     }
+    public List findBienBanKiemKe(String TenBienBan) throws SQLException{
+        String sql = "SELECT * FROM bienbankiemke WHERE  TenBienBan LIKE ?";
+        PreparedStatement p = BienBanKiemKeDAO.connectDB().prepareStatement(sql);
+        p.setString(1, "%" + TenBienBan + "%");
+        ResultSet rs = p.executeQuery();
+        List list = new ArrayList();
+        if(rs != null){
+            int i = 1;
+            while (rs.next()) {
+                BienBanKiemKe bbkk = new BienBanKiemKe();
+                bbkk.setIdBienBan(rs.getInt("ID"));
+                bbkk.setID(rs.getInt("IDNguoiLap"));
+                bbkk.setTenBienBan(rs.getString("TenBienBan"));
+                bbkk.setNgayLap(rs.getDate("NgayLap"));
+                bbkk.setSoLuongTonKho(rs.getInt("SoLuongTonKho"));
+                bbkk.setSoLuongThuc(rs.getInt("SoLuongThucThe"));
+                bbkk.setChenhLech(rs.getInt("ChenhLech"));
+                bbkk.setLyDo(rs.getString("LyDo"));
+                list.add(bbkk);
+            }
+        }
+        return list;
+    }
      public static void main(String[] args) {
         BienBanKiemKeDAO bienBanKiemKeDAO = new BienBanKiemKeDAO();
         try {

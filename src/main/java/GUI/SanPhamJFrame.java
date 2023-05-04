@@ -33,7 +33,7 @@ public class SanPhamJFrame extends javax.swing.JFrame {
     private int idsanpham;
     String duongdanfile = null;
     String tenfile = null;
-    String duongdandata = "D:/LTJava/QuanLyMayTinh1/src/main/java/Asset/";
+    String duongdandata = "C:\\Users\\admin\\GitHub\\QuanLyMayTinh\\src\\main\\java\\Asset\\";
     
     DecimalFormat DecimalFormat = new DecimalFormat("#");
     public SanPhamJFrame() {
@@ -143,20 +143,18 @@ public class SanPhamJFrame extends javax.swing.JFrame {
         jpHinhAnh.setForeground(new java.awt.Color(255, 51, 51));
         jpHinhAnh.setPreferredSize(new java.awt.Dimension(150, 150));
 
-        lbimage.setIcon(new javax.swing.ImageIcon("D:\\LTJava\\QuanLyMayTinh1\\src\\main\\java\\Asset\\plus.jpg")); // NOI18N
-
         javax.swing.GroupLayout jpHinhAnhLayout = new javax.swing.GroupLayout(jpHinhAnh);
         jpHinhAnh.setLayout(jpHinhAnhLayout);
         jpHinhAnhLayout.setHorizontalGroup(
             jpHinhAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpHinhAnhLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 150, Short.MAX_VALUE)
                 .addComponent(lbimage))
         );
         jpHinhAnhLayout.setVerticalGroup(
             jpHinhAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpHinhAnhLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 150, Short.MAX_VALUE)
                 .addComponent(lbimage))
         );
 
