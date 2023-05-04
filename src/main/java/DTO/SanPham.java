@@ -21,6 +21,16 @@ public class SanPham {
     Date NgaySanXuat;
     String HinhAnh;
     
+    LoaiSanPham tenloaisanpham;
+
+    public LoaiSanPham getTenloaisanpham() {
+        return tenloaisanpham;
+    }
+
+    public void setTenloaisanpham(LoaiSanPham tenloaisanpham) {
+        this.tenloaisanpham = tenloaisanpham;
+    }
+    
     public SanPham(){
         
     }

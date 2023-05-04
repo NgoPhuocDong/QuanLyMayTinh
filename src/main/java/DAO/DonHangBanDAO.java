@@ -44,6 +44,7 @@ public class DonHangBanDAO extends MyDatabaseManager{
             }
         }
     }
+    public 
     public ArrayList readDonHangBan() throws SQLException{
         String sql = "select * from donhangban where ID > 0";
         ResultSet rs = DonHangBanDAO.doReadQuery(sql);

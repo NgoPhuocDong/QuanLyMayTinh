@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Date;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -48,6 +49,8 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
     private ChiTietDonHangBan chiTietDelete = new ChiTietDonHangBan();
     private int chitietdonhangbanid;
     
+    DecimalFormat DecimalFormat = new DecimalFormat("#");
+    
     /**
      * Creates new form DonHangBanJF
      */
@@ -71,12 +74,11 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             DonHangBanBUS donHangBUS = new DonHangBanBUS();
             List<DonHangBan> list  = donHangBUS.LoadDonHangBan(WIDTH);
             
-            NhanVienBUS nhanVienBUS = new NhanVienBUS();
-            List<NhanVien> listnv  = nhanVienBUS.LoadNhanVien(WIDTH);
+            
             jtbDonHangBanmodel.setRowCount(0);
             for(DonHangBan dh : list){
                 jtbDonHangBanmodel.addRow(new Object[]{
-                    dh.getID(),dh.getIdNhanVienLap(),dh.getIdKhachHang(),dh.getIdTrangThai(),dh.getNgayLap(),dh.getTongTien()
+                    dh.getID(),dh.getIdNhanVienLap(),dh.getIdKhachHang(),dh.getIdTrangThai(),dh.getNgayLap(),DecimalFormat.format(dh.getTongTien())
                 });
             }
             jtbDonHangBanmodel.fireTableDataChanged();
@@ -89,7 +91,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             jtbChiTietDonHangBanmodel.setRowCount(0);
             for(ChiTietDonHangBan dh : listct){
                 jtbChiTietDonHangBanmodel.addRow(new Object[]{
-                    dh.getId(),dh.getIdDonHangBan(),dh.getIdSanPham(),dh.getSoLuong(),dh.getDonGiaApDung(),dh.getThanhTien()
+                    dh.getId(),dh.getIdDonHangBan(),dh.getIdSanPham(),dh.getSoLuong(),DecimalFormat.format(dh.getDonGiaApDung()),DecimalFormat.format(dh.getThanhTien())
                 });
             }
             jtbChiTietDonHangBanmodel.fireTableDataChanged();
@@ -721,7 +723,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                     jtfidKhachHang.setText(String.valueOf(dh.getIdKhachHang()));
                     jtfidTrangThai.setText(String.valueOf(dh.getIdTrangThai()));
                     jdtNgayLap.setDate(dh.getNgayLap());
-                    jtfTongTien.setText(String.valueOf(dh.getTongTien()));
+                    jtfTongTien.setText(String.valueOf(DecimalFormat.format(dh.getTongTien())));
                     //jtbChiTietDonHangBanmodel.getColumnClass(ICONIFIED);
                 }
             }
@@ -774,8 +776,8 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                     jtfidDonHangBan.setText(String.valueOf(dh.getIdDonHangBan()));
                     jtfidSanPham.setText(String.valueOf(dh.getIdSanPham()));
                     jtfSoLuong.setText(String.valueOf(dh.getSoLuong()));
-                    jtfDonGia.setText(String.valueOf(dh.getDonGiaApDung()));
-                    jtfThanhTien.setText(String.valueOf(dh.getThanhTien()));
+                    jtfDonGia.setText(String.valueOf(DecimalFormat.format(dh.getDonGiaApDung())));
+                    jtfThanhTien.setText(String.valueOf(DecimalFormat.format(dh.getThanhTien())));
                 }
             }
         } catch (Exception e) {
@@ -1008,7 +1010,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             FileOutputStream excelFOS;
             BufferedOutputStream excelBOS;
             try{
-                excelFOS = new FileOutputStream(new File(file.getSelectedFile() + ".xls"));
+                excelFOS = new FileOutputStream(new File(file.getSelectedFile() + ".xlsx"));
                 excelBOS = new BufferedOutputStream(excelFOS);
                 excelWorkbook.write(excelBOS);
                 JOptionPane.showMessageDialog(null, "Xuất file excel thành công!");
