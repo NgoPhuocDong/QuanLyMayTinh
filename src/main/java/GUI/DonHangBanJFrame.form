@@ -117,7 +117,9 @@
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jtfTongTien" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="btnExcel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -159,6 +161,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="jtfTongTien" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnExcel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -256,6 +259,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1a1;n h&#xe0;ng b&#xe1;n"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnExcel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="jButton1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcelActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -369,14 +380,16 @@
                       <Component id="jtfSoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnThemChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnXoaChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCapNhatChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfDonGia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfThanhTien" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnThemChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnXoaChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCapNhatChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfDonGia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfThanhTien" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="140" max="-2" attributes="0"/>

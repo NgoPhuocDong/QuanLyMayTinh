@@ -10,6 +10,10 @@ import DAO.*;
 import BUS.*;
 import DTO.NhanVien;
 import java.beans.Customizer;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.*;
 import java.text.SimpleDateFormat;
@@ -18,9 +22,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /**
  *
  * @author VO THANH HOA
@@ -114,6 +124,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
         btnLuu = new javax.swing.JButton();
         jdtNgayLap = new com.toedter.calendar.JDateChooser();
         jLabel12 = new javax.swing.JLabel();
+        btnExcel = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbDonHangBan = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -216,6 +227,13 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
 
         jLabel12.setText("Đơn hàng bán");
 
+        btnExcel.setText("jButton1");
+        btnExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -259,7 +277,9 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfTongTien)
-                .addGap(320, 320, 320))
+                .addGap(31, 31, 31)
+                .addComponent(btnExcel)
+                .addGap(218, 218, 218))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -292,7 +312,8 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtfTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtfTongTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExcel))
                 .addContainerGap())
         );
 
@@ -485,14 +506,15 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(jtfSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(btnThemChiTiet)
-                    .addComponent(btnXoaChiTiet)
-                    .addComponent(btnCapNhatChiTiet)
-                    .addComponent(jtfDonGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(jtfThanhTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnThemChiTiet)
+                        .addComponent(btnXoaChiTiet)
+                        .addComponent(btnCapNhatChiTiet)
+                        .addComponent(jtfDonGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11)
+                        .addComponent(jtfThanhTien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
@@ -865,6 +887,10 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnXoaChiTietActionPerformed
 
+    private void btnExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelActionPerformed
+        XuatExcel();
+    }//GEN-LAST:event_btnExcelActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -904,6 +930,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCapNhat;
     private javax.swing.JButton btnCapNhatChiTiet;
+    private javax.swing.JButton btnExcel;
     private javax.swing.JButton btnLuu;
     private javax.swing.JButton btnThemChiTiet;
     private javax.swing.JButton btnTimKiem;
@@ -941,4 +968,55 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jtfidSanPham;
     private javax.swing.JTextField jtfidTrangThai;
     // End of variables declaration//GEN-END:variables
+
+    private void XuatExcel() {
+       JFileChooser file = new JFileChooser(); //Khởi tạo JFileChooser
+        file.setCurrentDirectory(new File(System.getProperty("user.home"))); 
+        
+        int result = file.showSaveDialog(null);
+        if ( result == JFileChooser.APPROVE_OPTION){
+            XSSFWorkbook excelWorkbook = new XSSFWorkbook();
+            XSSFSheet excelSheet = excelWorkbook.createSheet("CHI TIET HOA DON");
+            
+            XSSFRow row = null;
+            Cell cell = null;
+            
+            row = excelSheet.createRow((short) 2);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("CHI TIET HOA DON");
+
+            row = excelSheet.createRow((short) 3);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("ID DON HANG");
+            cell = row.createCell(1, CellType.STRING);
+            cell.setCellValue("ID SAN PHAM");
+            cell = row.createCell(2, CellType.STRING);
+            cell.setCellValue("SO LUONG");
+            cell = row.createCell(3, CellType.STRING);
+            cell.setCellValue("DON GIA");
+            cell = row.createCell(4, CellType.STRING);
+            cell.setCellValue("THANH TIEN"); 
+            for (int i = 0; i < jtbChiTietDonHangBan.getRowCount(); i++){
+                row = excelSheet.createRow((short) 4 + i);
+                row.setHeight((short) 400);
+                for (int j = 0; j < jtbChiTietDonHangBan.getColumnCount(); j++){
+                    row.createCell(j).setCellValue(jtbChiTietDonHangBan.getValueAt(i, j).toString());
+                }
+            }          
+            FileOutputStream excelFOS;
+            BufferedOutputStream excelBOS;
+            try{
+                excelFOS = new FileOutputStream(new File(file.getSelectedFile() + ".xls"));
+                excelBOS = new BufferedOutputStream(excelFOS);
+                excelWorkbook.write(excelBOS);
+                JOptionPane.showMessageDialog(null, "Xuất file excel thành công!");
+                excelBOS.close();
+                excelWorkbook.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
 }
