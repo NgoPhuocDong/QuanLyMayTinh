@@ -358,7 +358,7 @@ public class SanPhamJFrame extends javax.swing.JFrame {
     public ImageIcon ResizeImage(String ImagePath){
         ImageIcon MyImage = new ImageIcon(ImagePath);
         Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(150,150,Image.SCALE_SMOOTH);
+        Image newImg = img.getScaledInstance(lbimage.getWidth(),lbimage.getHeight(),Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImg);
         return image;
     }
