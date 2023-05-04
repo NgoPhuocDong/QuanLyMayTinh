@@ -27,6 +27,8 @@ public class ChiTietDonHangBanDAO extends MyDatabaseManager{
     public ChiTietDonHangBanDAO(){
         ChiTietDonHangBanDAO.connectDB();
     }
+    
+    
     public void listChiTietDonHangBan() throws SQLException{
         String sql = "select * from chitietdonhangban";
         ResultSet rs = ChiTietDonHangBanDAO.doReadQuery(sql);
@@ -91,7 +93,7 @@ public class ChiTietDonHangBanDAO extends MyDatabaseManager{
         p.setInt(3, chiTiet.getIdSanPham());
         p.setInt(4, chiTiet.getSoLuong());
         p.setDouble(5, chiTiet.getDonGiaApDung());
-        p.setDouble(6, chiTiet.getThanhTien());
+        p.setDouble(6, chiTiet.getDonGiaApDung()*chiTiet.getSoLuong());
         int result = p.executeUpdate();
         return result;
     }

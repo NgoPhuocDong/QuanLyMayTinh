@@ -789,7 +789,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         ChiTietDonHangBan chiTiet = new ChiTietDonHangBan();
         if(jtfidDonHangBan.getText().isBlank()|| jtfidSanPham.getText().isBlank()|| jtfSoLuong.getText().isBlank()
-            || jtfDonGia.getText().isBlank() || jtfThanhTien.getText().isBlank()){
+            || jtfDonGia.getText().isBlank()){
             JOptionPane.showMessageDialog(this, "Không được điền thiếu thông tin chi tiết hóa đơn");
             return;
         }
@@ -803,7 +803,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             chiTiet.setIdSanPham(Integer.parseInt(jtfidSanPham.getText()));
             chiTiet.setSoLuong(Integer.parseInt(jtfSoLuong.getText()));
             chiTiet.setDonGiaApDung(Float.parseFloat(jtfDonGia.getText()));
-            chiTiet.setThanhTien(Float.parseFloat(jtfThanhTien.getText()));
+            //chiTiet.setThanhTien(Double.parseDouble(jtfThanhTien.getText()));
             ChiTietDonHangBanBUS chiTietBUS = new ChiTietDonHangBanBUS();
             if(chiTietBUS.saveChiTietDonHangBan(chiTiet) > 0){
                 JOptionPane.showMessageDialog(this, "Thêm chi tiết thành công");
@@ -811,7 +811,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                 jtfidSanPham.setText("");
                 jtfSoLuong.setText("");
                 jtfDonGia.setText("");
-                jtfThanhTien.setText("");
+                //jtfThanhTien.setText("");
                 loadData();
             }
             else{

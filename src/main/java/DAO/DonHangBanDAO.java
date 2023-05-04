@@ -44,11 +44,10 @@ public class DonHangBanDAO extends MyDatabaseManager{
             }
         }
     }
-//    public double ThanhTien(){
-//        ChiTietDonHangBan ctdh = new ChiTietDonHangBan();
-//        ctdh.
-//        return ctdh.getThanhTien();
-//    }
+    public double ThanhTien(double soluong,double dongia){
+        double thanhtien = 0;
+        return thanhtien = soluong * dongia;
+    }
     public ArrayList readDonHangBan() throws SQLException{
         String sql = "select * from donhangban where ID > 0";
         ResultSet rs = DonHangBanDAO.doReadQuery(sql);
