@@ -43,4 +43,9 @@ public class BienBanKiemKeBUS {
         boolean result = bienBanKiemKeDAO.deleteBienBanKiemKe(bbkk);
         return result;
     }
+    public List findBienBaKiemKe(String TenBienBan) throws SQLException{
+        List list = new ArrayList();
+        list = bienBanKiemKeDAO.findBienBanKiemKe(TenBienBan);
+        return list;
+    }
 }

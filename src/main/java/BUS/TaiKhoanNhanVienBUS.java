@@ -47,4 +47,9 @@ public class TaiKhoanNhanVienBUS {
         boolean result = taiKhoanNhanVienDAO.deleteTaiKhoanNV(tknv);
         return result;
     }
+    public List findTaiKhoanNhanVien(String TenDangNhap) throws SQLException{
+        List list = new ArrayList();
+        list = taiKhoanNhanVienDAO.findTaiKhoanNhanVien(TenDangNhap);
+        return list;
+    }
 }

@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -128,6 +129,26 @@ public class TaiKhoanNhanVienDAO extends MyDatabaseManager{
         int result = p.executeUpdate();
 
         return true;
+    }
+    public List findTaiKhoanNhanVien(String TenDangNhap) throws SQLException{
+        String sql = "SELECT * FROM taikhoannhanvien WHERE TenDangNhap LIKE ?";
+        PreparedStatement p = BienBanKiemKeDAO.connectDB().prepareStatement(sql);
+        p.setString(1, "%" + TenDangNhap + "%");
+        ResultSet rs = p.executeQuery();
+        List list = new ArrayList();
+        if(rs != null){
+            int i = 1;
+            while (rs.next()) {
+                TaikhoanNhanvien taikhoanNhanvien = new TaikhoanNhanvien();
+                taikhoanNhanvien.setTenDangNhap(rs.getString("TenDangNhap"));
+                taikhoanNhanvien.setID(rs.getInt("IDNhanVien"));
+                taikhoanNhanvien.setMatKhau(rs.getString("MatKhau"));
+                taikhoanNhanvien.setTrangThai(rs.getInt("TrangThai"));
+                taikhoanNhanvien.setAnhDaiDien(rs.getBytes("AnhDaiDien"));
+                list.add(taikhoanNhanvien);
+            }
+        }
+        return list;
     }
     
     public static void main(String[] args) {
