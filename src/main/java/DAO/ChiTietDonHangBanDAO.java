@@ -83,6 +83,26 @@ public class ChiTietDonHangBanDAO extends MyDatabaseManager{
         }
         return chiTiet;
     }
+    public ChiTietDonHangBan getIDSanPham(int IdSanPham) throws SQLException{
+        String sql = "select * from chitietdonhangban , sanpham WHERE chitietdonhangban.idSanPham = sanpham.ID AND idSanPham = ?";
+        PreparedStatement p = ChiTietDonHangBanDAO.connectDB().prepareStatement(sql);
+        p.setDouble(1, IdSanPham);
+        ResultSet rs = p.executeQuery();
+        
+        ChiTietDonHangBan chiTiet = new ChiTietDonHangBan();
+        if(rs != null){
+            int i = 1;
+            while (rs.next()) {
+                chiTiet.setId(rs.getInt("ID"));
+                chiTiet.setIdDonHangBan(rs.getInt("idDonHangBan"));
+                chiTiet.setIdSanPham(rs.getInt("idSanPham"));
+                chiTiet.setSoLuong(rs.getInt("SoLuong"));
+                chiTiet.setDonGiaApDung(rs.getDouble("DonGiaApDung"));
+                chiTiet.setThanhTien(rs.getDouble("ThanhTien"));
+            }
+        }
+        return  chiTiet;
+    }
     public int saveChiTietDonHangBan(ChiTietDonHangBan chiTiet) throws SQLException{
         String sql = "Insert chitietdonhangban (ID,idDonHangBan,idSanPham,SoLuong,DonGiaApDung,ThanhTien) value (?,?,?,?,?,?)";
         PreparedStatement p = ChiTietDonHangBanDAO.connectDB().prepareStatement(sql);

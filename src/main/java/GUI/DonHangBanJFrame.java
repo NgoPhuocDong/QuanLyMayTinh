@@ -9,6 +9,7 @@ import DTO.ChiTietDonHangBan;
 import DAO.*;
 import BUS.*;
 import DTO.NhanVien;
+import java.awt.event.KeyEvent;
 import java.beans.Customizer;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -414,6 +415,11 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
         jtfidSanPham.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfidSanPhamActionPerformed(evt);
+            }
+        });
+        jtfidSanPham.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtfidSanPhamKeyPressed(evt);
             }
         });
 
@@ -944,6 +950,22 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
     private void btnExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelActionPerformed
         XuatExcel();
     }//GEN-LAST:event_btnExcelActionPerformed
+
+    private void jtfidSanPhamKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfidSanPhamKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            try {
+                ChiTietDonHangBanBUS ctdhbbus = new ChiTietDonHangBanBUS();
+                ChiTietDonHangBan ctdhb = ctdhbbus.getIDSanPham(Integer.parseInt(""+jtfidSanPham.getText()));
+                if(ctdhb.getDonGiaApDung() == 0 ){
+                    JOptionPane.showMessageDialog(this, "Sản phẩm không tồn tại");
+                }
+                jtfDonGia.setText(""+ctdhb.getDonGiaApDung());
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Lỗi");
+            }
+        }
+    }//GEN-LAST:event_jtfidSanPhamKeyPressed
 
     /**
      * @param args the command line arguments
