@@ -68,7 +68,7 @@ public class KhachHangDAO extends MyDatabaseManager{
             int i = 1;
             while(rs.next()){
                 kh.setID(rs.getInt("ID"));
-                kh.setTenKhachHang(rs.getString("TenNhanVien"));
+                kh.setTenKhachHang(rs.getString("TenKhachHang"));
                 kh.setGioiTinh(rs.getString("GioiTinh"));
                 kh.setNgaySinh(rs.getDate("NgaySinh"));
 //                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
@@ -133,7 +133,7 @@ public class KhachHangDAO extends MyDatabaseManager{
             while (rs.next()) {
                 KhachHang kh = new KhachHang();
                 kh.setID(rs.getInt("ID"));
-                kh.setTenKhachHang(rs.getString("TenNhanVien"));
+                kh.setTenKhachHang(rs.getString("TenKhachHang"));
                 kh.setGioiTinh(rs.getString("GioiTinh"));
                 kh.setNgaySinh(rs.getDate("NgaySinh"));
 //                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
