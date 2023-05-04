@@ -369,14 +369,16 @@
                       <Component id="jtfSoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnThemChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnXoaChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCapNhatChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfDonGia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jtfThanhTien" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnThemChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnXoaChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCapNhatChiTiet" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfDonGia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfThanhTien" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="140" max="-2" attributes="0"/>
