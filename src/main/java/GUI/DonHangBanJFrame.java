@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Date;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -49,6 +50,8 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
     private ChiTietDonHangBan chiTietDelete = new ChiTietDonHangBan();
     private int chitietdonhangbanid;
     
+    DecimalFormat DecimalFormat = new DecimalFormat("#");
+    
     /**
      * Creates new form DonHangBanJF
      */
@@ -72,12 +75,11 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             DonHangBanBUS donHangBUS = new DonHangBanBUS();
             List<DonHangBan> list  = donHangBUS.LoadDonHangBan(WIDTH);
             
-            NhanVienBUS nhanVienBUS = new NhanVienBUS();
-            List<NhanVien> listnv  = nhanVienBUS.LoadNhanVien(WIDTH);
+            
             jtbDonHangBanmodel.setRowCount(0);
             for(DonHangBan dh : list){
                 jtbDonHangBanmodel.addRow(new Object[]{
-                    dh.getID(),dh.getIdNhanVienLap(),dh.getIdKhachHang(),dh.getIdTrangThai(),dh.getNgayLap(),dh.getTongTien()
+                    dh.getID(),dh.getIdNhanVienLap(),dh.getIdKhachHang(),dh.getIdTrangThai(),dh.getNgayLap(),DecimalFormat.format(dh.getTongTien())
                 });
             }
             jtbDonHangBanmodel.fireTableDataChanged();
@@ -90,63 +92,13 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             jtbChiTietDonHangBanmodel.setRowCount(0);
             for(ChiTietDonHangBan dh : listct){
                 jtbChiTietDonHangBanmodel.addRow(new Object[]{
-                    dh.getId(),dh.getIdDonHangBan(),dh.getIdSanPham(),dh.getSoLuong(),dh.getDonGiaApDung(),dh.getThanhTien()
+                    dh.getId(),dh.getIdDonHangBan(),dh.getIdSanPham(),dh.getSoLuong(),DecimalFormat.format(dh.getDonGiaApDung()),DecimalFormat.format(dh.getThanhTien())
                 });
             }
             jtbChiTietDonHangBanmodel.fireTableDataChanged();
             chitietdonhangbanid = list.size() + 1;
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-    private void XuatExcel() {
-       JFileChooser file = new JFileChooser(); //Khởi tạo JFileChooser
-        file.setCurrentDirectory(new File(System.getProperty("user.home"))); 
-        
-        int result = file.showSaveDialog(null);
-        if ( result == JFileChooser.APPROVE_OPTION){
-            XSSFWorkbook excelWorkbook = new XSSFWorkbook();
-            XSSFSheet excelSheet = excelWorkbook.createSheet("CHI TIET HOA DON");
-            
-            XSSFRow row = null;
-            Cell cell = null;
-            
-            row = excelSheet.createRow((short) 2);
-            row.setHeight((short) 500);
-            cell = row.createCell(0, CellType.STRING);
-            cell.setCellValue("CHI TIET HOA DON");
-
-            row = excelSheet.createRow((short) 3);
-            row.setHeight((short) 500);
-            cell = row.createCell(0, CellType.STRING);
-            cell.setCellValue("ID DON HANG");
-            cell = row.createCell(1, CellType.STRING);
-            cell.setCellValue("ID SAN PHAM");
-            cell = row.createCell(2, CellType.STRING);
-            cell.setCellValue("SO LUONG");
-            cell = row.createCell(3, CellType.STRING);
-            cell.setCellValue("DON GIA");
-            cell = row.createCell(4, CellType.STRING);
-            cell.setCellValue("THANH TIEN"); 
-            for (int i = 0; i < jtbChiTietDonHangBan.getRowCount(); i++){
-                row = excelSheet.createRow((short) 4 + i);
-                row.setHeight((short) 400);
-                for (int j = 0; j < jtbChiTietDonHangBan.getColumnCount(); j++){
-                    row.createCell(j).setCellValue(jtbChiTietDonHangBan.getValueAt(i, j).toString());
-                }
-            }          
-            FileOutputStream excelFOS;
-            BufferedOutputStream excelBOS;
-            try{
-                excelFOS = new FileOutputStream(new File(file.getSelectedFile() + ".xls"));
-                excelBOS = new BufferedOutputStream(excelFOS);
-                excelWorkbook.write(excelBOS);
-                JOptionPane.showMessageDialog(null, "Xuất file excel thành công!");
-                excelBOS.close();
-                excelWorkbook.close();
-            }catch (IOException e){
-                e.printStackTrace();
-            }
         }
     }
     /**
@@ -303,33 +255,34 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtfidKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jtfidNhanVienLap, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12))
-                            .addComponent(jdtNgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jtfidKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnLuu)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnCapNhat)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnXoa))
-                                    .addComponent(jtfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnTimKiem)))))
-                .addGap(187, 187, 187))
+                                        .addGap(110, 110, 110)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(btnLuu)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnCapNhat)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnXoa))
+                                            .addComponent(jtfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnTimKiem))))
+                            .addComponent(jdtNgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(114, 114, 114))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(212, 212, 212)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtfTongTien)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(btnExcel)
-                .addGap(227, 227, 227))
+                .addGap(218, 218, 218))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,25 +290,20 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtfidNhanVienLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jtfidKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jtfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnTimKiem))
-                            .addGap(32, 32, 32))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnLuu)
-                            .addComponent(btnXoa)
-                            .addComponent(btnCapNhat))))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfidNhanVienLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnTimKiem))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jtfidKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLuu)
+                        .addComponent(btnXoa)
+                        .addComponent(btnCapNhat)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -499,7 +447,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
+            .addGap(0, 347, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 166, Short.MAX_VALUE)
@@ -834,8 +782,8 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                     jtfidDonHangBan.setText(String.valueOf(dh.getIdDonHangBan()));
                     jtfidSanPham.setText(String.valueOf(dh.getIdSanPham()));
                     jtfSoLuong.setText(String.valueOf(dh.getSoLuong()));
-                    jtfDonGia.setText(String.valueOf(dh.getDonGiaApDung()));
-                    jtfThanhTien.setText(String.valueOf(dh.getThanhTien()));
+                    jtfDonGia.setText(String.valueOf(DecimalFormat.format(dh.getDonGiaApDung())));
+                    jtfThanhTien.setText(String.valueOf(DecimalFormat.format(dh.getThanhTien())));
                 }
             }
         } catch (Exception e) {
@@ -1044,4 +992,55 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jtfidSanPham;
     private javax.swing.JTextField jtfidTrangThai;
     // End of variables declaration//GEN-END:variables
+
+    private void XuatExcel() {
+       JFileChooser file = new JFileChooser(); //Khởi tạo JFileChooser
+        file.setCurrentDirectory(new File(System.getProperty("user.home"))); 
+        
+        int result = file.showSaveDialog(null);
+        if ( result == JFileChooser.APPROVE_OPTION){
+            XSSFWorkbook excelWorkbook = new XSSFWorkbook();
+            XSSFSheet excelSheet = excelWorkbook.createSheet("CHI TIET HOA DON");
+            
+            XSSFRow row = null;
+            Cell cell = null;
+            
+            row = excelSheet.createRow((short) 2);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("CHI TIET HOA DON");
+
+            row = excelSheet.createRow((short) 3);
+            row.setHeight((short) 500);
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("ID DON HANG");
+            cell = row.createCell(1, CellType.STRING);
+            cell.setCellValue("ID SAN PHAM");
+            cell = row.createCell(2, CellType.STRING);
+            cell.setCellValue("SO LUONG");
+            cell = row.createCell(3, CellType.STRING);
+            cell.setCellValue("DON GIA");
+            cell = row.createCell(4, CellType.STRING);
+            cell.setCellValue("THANH TIEN"); 
+            for (int i = 0; i < jtbChiTietDonHangBan.getRowCount(); i++){
+                row = excelSheet.createRow((short) 4 + i);
+                row.setHeight((short) 400);
+                for (int j = 0; j < jtbChiTietDonHangBan.getColumnCount(); j++){
+                    row.createCell(j).setCellValue(jtbChiTietDonHangBan.getValueAt(i, j).toString());
+                }
+            }          
+            FileOutputStream excelFOS;
+            BufferedOutputStream excelBOS;
+            try{
+                excelFOS = new FileOutputStream(new File(file.getSelectedFile() + ".xlsx"));
+                excelBOS = new BufferedOutputStream(excelFOS);
+                excelWorkbook.write(excelBOS);
+                JOptionPane.showMessageDialog(null, "Xuất file excel thành công!");
+                excelBOS.close();
+                excelWorkbook.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
 }
