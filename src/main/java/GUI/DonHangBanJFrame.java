@@ -12,6 +12,7 @@ import DTO.KhachHang;
 import DTO.NhanVien;
 import DTO.SanPham;
 import DTO.TrangThaiBan;
+import java.awt.event.KeyEvent;
 import java.beans.Customizer;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -421,10 +422,20 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                 jtfidSanPhamActionPerformed(evt);
             }
         });
+        jtfidSanPham.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtfidSanPhamKeyPressed(evt);
+            }
+        });
 
         jtfSoLuong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfSoLuongActionPerformed(evt);
+            }
+        });
+        jtfSoLuong.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtfSoLuongKeyPressed(evt);
             }
         });
 
@@ -981,6 +992,40 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             jtfThanhTien.setText("");
             loadData();
     }//GEN-LAST:event_btnResetChiTietActionPerformed
+
+    private void jtfidSanPhamKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfidSanPhamKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            try {
+                ChiTietDonHangBanBUS ctdhbbus = new ChiTietDonHangBanBUS();
+                ChiTietDonHangBan ctdhb = ctdhbbus.getIDSanPham(Integer.parseInt(""+jtfidSanPham.getText()));
+                if(ctdhb.getDonGiaApDung() == 0 ){
+                    JOptionPane.showMessageDialog(this, "Sản phẩm không tồn tại");
+                }
+                jtfDonGia.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung()));
+                jtfThanhTien.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung() * Integer.parseInt(jtfSoLuong.getText()) ) );
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Lỗi");
+            }
+        }
+    }//GEN-LAST:event_jtfidSanPhamKeyPressed
+
+    private void jtfSoLuongKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSoLuongKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            try {
+                ChiTietDonHangBanBUS ctdhbbus = new ChiTietDonHangBanBUS();
+                ChiTietDonHangBan ctdhb = ctdhbbus.getIDSanPham(Integer.parseInt(""+jtfidSanPham.getText()));
+                if(ctdhb.getDonGiaApDung() == 0 ){
+                    JOptionPane.showMessageDialog(this, "Sản phẩm không tồn tại");
+                }
+                jtfDonGia.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung()));
+                jtfThanhTien.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung() * Integer.parseInt(jtfSoLuong.getText()) ) );
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Lỗi");
+            }
+        }
+    }//GEN-LAST:event_jtfSoLuongKeyPressed
 
     /**
      * @param args the command line arguments
