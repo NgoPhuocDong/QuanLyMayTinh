@@ -17,9 +17,9 @@ public class ChiTietDonHangBanBUS {
     public  ChiTietDonHangBanBUS(){
         chiTietDAO = new ChiTietDonHangBanDAO();
     }
-    public List LoadChiTietDonHangBan(int page) throws SQLException{
+    public List LoadChiTietDonHangBan(int page,int id) throws SQLException{
         int numfrecords = 100;
-        ArrayList list = chiTietDAO.readChiTietDonHangBan();
+        ArrayList list = chiTietDAO.readChiTietDonHangBan(id);
         int size = list.size();
         int from, to;
         from = (page - 1) * numfrecords;
@@ -47,6 +47,10 @@ public class ChiTietDonHangBanBUS {
     }
     public ChiTietDonHangBan getIDSanPham(int IdSanPham) throws SQLException{
         ChiTietDonHangBan ctdhb = chiTietDAO.getIDSanPham(IdSanPham);
+        return ctdhb;
+    }
+    public int updateTongTien(int id) throws SQLException{
+        int ctdhb = chiTietDAO.updateTongTien(id);
         return ctdhb;
     }
     

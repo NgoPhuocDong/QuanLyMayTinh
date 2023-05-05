@@ -24,6 +24,7 @@ import javax.xml.crypto.Data;
  */
 public class ChiTietDonHangBanDAO extends MyDatabaseManager{
     ChiTietDonHangBan chiTiet = new ChiTietDonHangBan();
+    DonHangBan donHangBan = new DonHangBan();
     public ChiTietDonHangBanDAO(){
         ChiTietDonHangBanDAO.connectDB();
     }
@@ -44,8 +45,8 @@ public class ChiTietDonHangBanDAO extends MyDatabaseManager{
             }
         }
     }
-    public ArrayList readChiTietDonHangBan() throws SQLException{
-        String sql = "select * from chitietdonhangban where ID > 0";
+    public ArrayList readChiTietDonHangBan(int iddonhang) throws SQLException{
+        String sql = "select * from chitietdonhangban where idDonHangBan = " + iddonhang;
         ResultSet rs = ChiTietDonHangBanDAO.doReadQuery(sql);
         ArrayList arrayList = new ArrayList();
         if(rs != null){
@@ -95,7 +96,13 @@ public class ChiTietDonHangBanDAO extends MyDatabaseManager{
         int result = p.executeUpdate();
         return result;
     }
- 
+    public int updateTongTien (int id) throws SQLException{
+        String sql = "UPDATE donhangban SET TongTien = (SELECT SUM(soluong * dongiaapdung) FROM ChiTietDonHangBan WHERE idDonHangBan = iddonhangban) WHERE ID = iddonhangban =" + id;
+        PreparedStatement p = ChiTietDonHangBanDAO.connectDB().prepareStatement(sql);
+        p.setInt(1, donHangBan.getID());
+        int result = p.executeUpdate();
+        return result;
+    }
     public  int updateChiTietDonHangBan (ChiTietDonHangBan chiTiet) throws SQLException{
         String sql = "Update chitietdonhangban SET idDonHangBan = ? , idSanPham = ? , SoLuong = ? , DonGiaApDung = ? , ThanhTien = ?"
                 + " WHERE ID = ?";

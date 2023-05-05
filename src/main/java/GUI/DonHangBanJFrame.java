@@ -113,29 +113,29 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             jtbDonHangBanmodel.fireTableDataChanged();
             donhangbanid = list.size() + 1;
             
-            ChiTietDonHangBanBUS chiTietBUS = new ChiTietDonHangBanBUS();
-            List<ChiTietDonHangBan> listct  = chiTietBUS.LoadChiTietDonHangBan(WIDTH);
-            
-            SanPhamBUS sanPhamBUS = new SanPhamBUS();
-            List<SanPham> listsp  = sanPhamBUS.LoadSanPham(WIDTH);
-            
-            jtbChiTietDonHangBanmodel.setRowCount(0);
-            for(ChiTietDonHangBan dh : listct){
-                 List<String> productNames = new ArrayList<>();
-                 for (SanPham sp : listsp) {
-                    if (sp.getID() == dh.getIdSanPham()) {
-                        productNames.add(sp.getTenSanPham());
-                    }
-                }
-                if (!productNames.isEmpty()) {
-                    String productName = String.join(" ", productNames);
-                    jtbChiTietDonHangBanmodel.addRow(new Object[]{
-                        dh.getId(),dh.getIdDonHangBan(),productName,dh.getSoLuong(),DecimalFormat.format(dh.getDonGiaApDung()),DecimalFormat.format(dh.getThanhTien())
-                    });
-                }
-            }
-            jtbChiTietDonHangBanmodel.fireTableDataChanged();
-            chitietdonhangbanid = list.size() + 1;
+//            ChiTietDonHangBanBUS chiTietBUS = new ChiTietDonHangBanBUS();
+//            List<ChiTietDonHangBan> listct  = chiTietBUS.LoadChiTietDonHangBan(WIDTH);
+//            
+//            SanPhamBUS sanPhamBUS = new SanPhamBUS();
+//            List<SanPham> listsp  = sanPhamBUS.LoadSanPham(WIDTH);
+//            
+//            jtbChiTietDonHangBanmodel.setRowCount(0);
+//            for(ChiTietDonHangBan dh : listct){
+//                 List<String> productNames = new ArrayList<>();
+//                 for (SanPham sp : listsp) {
+//                    if (sp.getID() == dh.getIdSanPham()) {
+//                        productNames.add(sp.getTenSanPham());
+//                    }
+//                }
+//                if (!productNames.isEmpty()) {
+//                    String productName = String.join(" ", productNames);
+//                    jtbChiTietDonHangBanmodel.addRow(new Object[]{
+//                        dh.getId(),dh.getIdDonHangBan(),productName,dh.getSoLuong(),DecimalFormat.format(dh.getDonGiaApDung()),DecimalFormat.format(dh.getThanhTien())
+//                    });
+//                }
+//            }
+//            jtbChiTietDonHangBanmodel.fireTableDataChanged();
+//            chitietdonhangbanid = list.size() + 1;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -632,17 +632,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//    private boolean Email(){
-//          String Email;
-//          Email = jtfEmailNhanvien.getText();
-//          String check = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-//          if(!Email.matches(check)){
-//             return false;
-//          }else{
-//            return true;
-//          }
-//          
-//      }
+
     
     private void jtfidNhanVienLapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfidNhanVienLapActionPerformed
         // TODO add your handling code here:
@@ -804,7 +794,30 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                     jtfidTrangThai.setText(String.valueOf(dh.getIdTrangThai()));
                     jdtNgayLap.setDate(dh.getNgayLap());
                     jtfTongTien.setText(String.valueOf(DecimalFormat.format(dh.getTongTien())));
-                    //jtbChiTietDonHangBanmodel.getColumnClass(ICONIFIED);
+                    
+                    ChiTietDonHangBanBUS chiTietBUS = new ChiTietDonHangBanBUS();
+                    List<ChiTietDonHangBan> listct  = chiTietBUS.LoadChiTietDonHangBan(WIDTH,id);
+
+                    SanPhamBUS sanPhamBUS = new SanPhamBUS();
+                    List<SanPham> listsp  = sanPhamBUS.LoadSanPham(WIDTH);
+
+                    jtbChiTietDonHangBanmodel.setRowCount(0);
+                    for(ChiTietDonHangBan ctdh : listct){
+                        List<String> productNames = new ArrayList<>();
+                        for (SanPham sp : listsp) {
+                            if (sp.getID() == ctdh.getIdSanPham()) {
+                                productNames.add(sp.getTenSanPham());
+                            }
+                        }
+                        if (!productNames.isEmpty()) {
+                            String productName = String.join(" ", productNames);
+                            jtbChiTietDonHangBanmodel.addRow(new Object[]{
+                                ctdh.getId(),ctdh.getIdDonHangBan(),productName,ctdh.getSoLuong(),DecimalFormat.format(ctdh.getDonGiaApDung()),DecimalFormat.format(ctdh.getThanhTien())
+                            });
+                        }
+                    }
+                    jtbChiTietDonHangBanmodel.fireTableDataChanged();
+                    chitietdonhangbanid = listct.size() + 1;
                 }
             }
         } catch (Exception e) {
@@ -939,6 +952,7 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
             jtfSoLuong.setText("");
             jtfDonGia.setText("");
             jtfThanhTien.setText("");
+            chiTietBUS.updateTongTien(Integer.parseInt(jtfidDonHangBan.getText()));
             loadData();
         }
         else{
