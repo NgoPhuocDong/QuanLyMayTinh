@@ -5,6 +5,7 @@
 package DAO;
 
 import DTO.SanPham;
+import DTO.LoaiSanPham;
 import com.mysql.cj.xdevapi.PreparableStatement;
 import com.mysql.cj.xdevapi.Result;
 import java.sql.Date;
@@ -25,11 +26,15 @@ import javax.xml.crypto.Data;
  */
 public class SanPhamDAO extends MyDatabaseManager{
     SanPham sanpham = new SanPham();
+    LoaiSanPham loaisanpham = new LoaiSanPham();
     public SanPhamDAO(){
         SanPhamDAO.connectDB();
     }
     public void listSanPham() throws SQLException{
-        String sql = "select * from sanpham";
+//        String sql = "select * from sanpham";
+        String sql = "select sp.ID,lsp.TenLoaiSanPham,sp.TenSanPham,sp.Gia,sp.MoTa,sp.SoLuong,sp.NgaySanXuat,sp.HinhAnh"
+                + " from sanpham as sp,loaisanpham as lsp"
+                + " where sp.idLoaiSanPham = lsp.ID";
         ResultSet rs = SanPhamDAO.doReadQuery(sql);
         if(rs != null){
             int i = 1;
@@ -37,7 +42,7 @@ public class SanPhamDAO extends MyDatabaseManager{
             while (rs.next()) {
                  System.out.print(i + "\t" + rs.getInt("ID"));
                 System.out.println("\t\t" + rs.getString("TenSanPham")
-                        + "\t\t\t" + rs.getInt("IdLoaiSanPham")
+                        + "\t\t\t" + rs.getString("TenLoaiSanPham")
                         + "\t\t\t" + rs.getFloat("Gia")
                         + "\t\t\t" + rs.getString("MoTa")
                         + "\t\t\t" + rs.getString("SoLuong")
@@ -48,7 +53,9 @@ public class SanPhamDAO extends MyDatabaseManager{
         }
     }
     public ArrayList readSanPham() throws SQLException{
-        String sql = "select * from sanpham where ID > 0";
+        String sql = "select sp.ID,lsp.TenLoaiSanPham,sp.IdLoaiSanPham,sp.TenSanPham,sp.Gia,sp.MoTa,sp.SoLuong,sp.NgaySanXuat,sp.HinhAnh"
+                + " from sanpham as sp,loaisanpham as lsp"
+                + " where sp.idLoaiSanPham = lsp.ID ";
         ResultSet rs = SanPhamDAO.doReadQuery(sql);
         ArrayList arrayList = new ArrayList();
         if(rs != null){
@@ -58,7 +65,6 @@ public class SanPhamDAO extends MyDatabaseManager{
                 sanPham.setTenSanPham(rs.getString("TenSanPham"));
                 sanPham.setIdLoaiSanPham(rs.getInt("IdLoaiSanPham"));
                 sanPham.setGia( rs.getFloat("Gia"));
-//                sanPham.setGia(rs.getString("Gia"));
                 sanPham.setMoTa(rs.getString("MoTa"));
                 sanPham.setSoLuong(rs.getInt("SoLuong"));
                 sanPham.setNgaySanXuat(rs.getDate("NgaySanXuat"));

@@ -33,8 +33,8 @@ public class SanPhamJFrame extends javax.swing.JFrame {
     private int idsanpham;
     String duongdanfile = null;
     String tenfile = null;
-    String duongdandata = "C:\\Users\\admin\\GitHub\\QuanLyMayTinh\\src\\main\\java\\Asset\\";
-    
+    //String duongdandata = "C:\\Users\\admin\\GitHub\\QuanLyMayTinh\\src\\main\\java\\Asset\\";
+    String duongdandata = "D:/LTJava/QuanLyMayTinh1/src/main/java/Asset/" ;
     DecimalFormat DecimalFormat = new DecimalFormat("#");
     public SanPhamJFrame() {
         initComponents();
@@ -356,7 +356,7 @@ public class SanPhamJFrame extends javax.swing.JFrame {
     public ImageIcon ResizeImage(String ImagePath){
         ImageIcon MyImage = new ImageIcon(ImagePath);
         Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(lbimage.getWidth(),lbimage.getHeight(),Image.SCALE_SMOOTH);
+        Image newImg = img.getScaledInstance(150,150 ,Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImg);
         return image;
     }

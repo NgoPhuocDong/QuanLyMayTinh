@@ -4,6 +4,7 @@
  */
 package BUS;
 import DTO.SanPham;
+import DTO.LoaiSanPham;
 import DAO.*;
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -107,6 +107,8 @@ public class ChiTietDonHangBanDAO extends MyDatabaseManager{
     }
     public int saveChiTietDonHangBan(ChiTietDonHangBan chiTiet) throws SQLException{
         String sql = "Insert chitietdonhangban (ID,idDonHangBan,idSanPham,SoLuong,DonGiaApDung,ThanhTien) value (?,?,?,?,?,?)";
+//        String sqlSum = "UPDATE donhangban SET TongTien = (SELECT SUM(soluong * dongiaapdung)"
+//                + " FROM ChiTietDonHangBan WHERE idDonHangBan = 1) WHERE ID = 1";
         PreparedStatement p = ChiTietDonHangBanDAO.connectDB().prepareStatement(sql);
         p.setInt(1, chiTiet.getId());
         p.setInt(2, chiTiet.getIdDonHangBan());

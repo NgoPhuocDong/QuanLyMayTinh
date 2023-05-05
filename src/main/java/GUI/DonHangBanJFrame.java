@@ -376,6 +376,11 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                 jtfSoLuongActionPerformed(evt);
             }
         });
+        jtfSoLuong.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtfSoLuongKeyPressed(evt);
+            }
+        });
 
         jtfDonGia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -907,13 +912,31 @@ public class DonHangBanJFrame extends javax.swing.JFrame {
                 if(ctdhb.getDonGiaApDung() == 0 ){
                     JOptionPane.showMessageDialog(this, "Sản phẩm không tồn tại");
                 }
-                jtfDonGia.setText(""+ctdhb.getDonGiaApDung());
+                jtfDonGia.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung()));
+                jtfThanhTien.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung() * Integer.parseInt(jtfSoLuong.getText()) ) );
             } catch (Exception e) {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Lỗi");
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
             }
         }
     }//GEN-LAST:event_jtfidSanPhamKeyPressed
+
+    private void jtfSoLuongKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSoLuongKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            try {
+                ChiTietDonHangBanBUS ctdhbbus = new ChiTietDonHangBanBUS();
+                ChiTietDonHangBan ctdhb = ctdhbbus.getIDSanPham(Integer.parseInt(""+jtfidSanPham.getText()));
+                if(ctdhb.getDonGiaApDung() == 0 ){
+                    JOptionPane.showMessageDialog(this, "Sản phẩm không tồn tại");
+                }
+                jtfDonGia.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung()));
+                jtfThanhTien.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung() * Integer.parseInt(jtfSoLuong.getText()) ) );
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin");
+            }
+        }
+    }//GEN-LAST:event_jtfSoLuongKeyPressed
 
     /**
      * @param args the command line arguments
