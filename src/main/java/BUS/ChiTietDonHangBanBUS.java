@@ -31,10 +31,6 @@ public class ChiTietDonHangBanBUS {
         ChiTietDonHangBan chiTiet = chiTietDAO.getChiTietDonHangBan(ID);
         return chiTiet;
     }
-    public ChiTietDonHangBan getIDSanPham(int IdSanPham) throws SQLException{
-        ChiTietDonHangBan ctdhb = chiTietDAO.getIDSanPham(IdSanPham);
-        return ctdhb;
-    }
     
     public int saveChiTietDonHangBan(ChiTietDonHangBan chiTiet) throws SQLException{
         int result = chiTietDAO.saveChiTietDonHangBan(chiTiet);

@@ -21,14 +21,14 @@ public class SanPham {
     Date NgaySanXuat;
     String HinhAnh;
     
-    LoaiSanPham TenLoaiSanPham;
+    LoaiSanPham tenloaisanpham;
 
-    public LoaiSanPham getTenLoaiSanPham() {
-        return TenLoaiSanPham;
+    public LoaiSanPham getTenloaisanpham() {
+        return tenloaisanpham;
     }
 
-    public void setTenLoaiSanPham(LoaiSanPham TenLoaiSanPham) {
-        this.TenLoaiSanPham = TenLoaiSanPham;
+    public void setTenloaisanpham(LoaiSanPham tenloaisanpham) {
+        this.tenloaisanpham = tenloaisanpham;
     }
     
     public SanPham(){
