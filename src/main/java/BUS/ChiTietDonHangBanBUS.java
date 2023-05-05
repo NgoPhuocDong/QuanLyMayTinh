@@ -45,5 +45,9 @@ public class ChiTietDonHangBanBUS {
         boolean result = chiTietDAO.deleteChiTietDonHangBan(nhanVien);
         return result;
     }
+    public ChiTietDonHangBan getIDSanPham(int IdSanPham) throws SQLException{
+        ChiTietDonHangBan ctdhb = chiTietDAO.getIDSanPham(IdSanPham);
+        return ctdhb;
+    }
     
 }
