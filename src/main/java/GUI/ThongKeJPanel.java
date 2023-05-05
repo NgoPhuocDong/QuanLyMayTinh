@@ -26,7 +26,7 @@ public class ThongKeJPanel extends javax.swing.JPanel {
     DefaultTableModel jtbThongKeModel;
     DefaultTableModel jtbTKDHMuaModel;
     DonHangBanBUS donHangBanBUS = new DonHangBanBUS();
-    DonHangMua1BUS donHangMua1BUS = new DonHangMua1BUS();
+//    DonHangMua1BUS donHangMua1BUS = new DonHangMua1BUS();
     
     DecimalFormat DecimalFormat = new DecimalFormat("#");
     /**
@@ -35,7 +35,7 @@ public class ThongKeJPanel extends javax.swing.JPanel {
     public ThongKeJPanel() throws Exception {
         initComponents();
         LoadDataTableDonHangBan();
-        LoadDataTableDonHangMua();
+//        LoadDataTableDonHangMua();
         TongDoanhThu();
 //        this.setLocationRelativeTo(null);
         setDataToChart(jpnDonHangBan3);
@@ -52,28 +52,28 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         }
         jtbThongKeDHB3.setModel(jtbThongKeModel);
     }
-    private void LoadDataTableDonHangMua(){
-        jtbTKDHMuaModel = new DefaultTableModel();
-        jtbTKDHMuaModel.setColumnIdentifiers(new String[]{"Mã hóa đơn","Ngày Bán","Tổng tiền"});
-        try {
-            ArrayList<DonHangMua1> donHangMua1s = donHangMua1BUS.GetAll();
-
-            initTableDonHangMua(donHangMua1s);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        jtbTKDonHangMua.setModel(jtbTKDHMuaModel);
-    }
+//    private void LoadDataTableDonHangMua(){
+//        jtbTKDHMuaModel = new DefaultTableModel();
+//        jtbTKDHMuaModel.setColumnIdentifiers(new String[]{"Mã hóa đơn","Ngày Bán","Tổng tiền"});
+//        try {
+//            ArrayList<DonHangMua1> donHangMua1s = donHangMua1BUS.GetAll();
+//
+//            initTableDonHangMua(donHangMua1s);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        jtbTKDonHangMua.setModel(jtbTKDHMuaModel);
+//    }
     private void initTableDonHangBan(ArrayList<DonHangBan> donHangBans){
         for(DonHangBan hd : donHangBans){
             jtbThongKeModel.addRow(new Object[]{hd.getID(),hd.getNgayLap(),DecimalFormat.format(hd.getTongTien())});
         }
     }
-    private void initTableDonHangMua(ArrayList<DonHangMua1> donHangMua1s){
-        for(DonHangMua1 hd : donHangMua1s){
-            jtbTKDHMuaModel.addRow(new Object[]{hd.getID(),hd.getNgayLap(),DecimalFormat.format(hd.getTongTien())});
-        }
-    }
+//    private void initTableDonHangMua(ArrayList<DonHangMua1> donHangMua1s){
+//        for(DonHangMua1 hd : donHangMua1s){
+//            jtbTKDHMuaModel.addRow(new Object[]{hd.getID(),hd.getNgayLap(),DecimalFormat.format(hd.getTongTien())});
+//        }
+//    }
     private float TongDoanhThu(){
         float Tong = 0;
         try {
