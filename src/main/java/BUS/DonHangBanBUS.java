@@ -49,5 +49,9 @@ public class DonHangBanBUS {
         list = donHangDAO.findDonHangBan(idKhachHang);
         return list;
     }
+    public ArrayList<DonHangBan> getHoaDonAll() throws Exception{
+        ArrayList<DonHangBan> Danhsachhoadon = donHangDAO.GetAll();
+        return Danhsachhoadon;
+    }
 }
     

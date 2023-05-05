@@ -12,6 +12,7 @@ import DTO.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,6 +25,7 @@ import javax.xml.crypto.Data;
  */
 public class DonHangBanDAO extends MyDatabaseManager{
     DonHangBan donHang = new DonHangBan();
+    DecimalFormat DecimalFormat = new DecimalFormat("#");
     public DonHangBanDAO(){
         DonHangBanDAO.connectDB();
     }
@@ -143,6 +145,22 @@ public class DonHangBanDAO extends MyDatabaseManager{
             }
         }
         return list;
+    }
+    public ArrayList<DonHangBan> GetAll() throws Exception {
+        String sql = "select * from donhangban";
+        ResultSet rs = DonHangBanDAO.doReadQuery(sql);
+        ArrayList<DonHangBan> DonBanHang = new ArrayList<>();
+        while ( rs.next() ) {
+            DonHangBan donHang = new DonHangBan();
+                donHang.setID(rs.getInt("ID"));
+                donHang.setIdNhanVienLap(rs.getInt("idNhanVienLap"));
+                donHang.setIdKhachHang(rs.getInt("idKhachHang"));
+                donHang.setIdTrangThai(rs.getInt("idTrangThai"));
+                donHang.setNgayLap(rs.getDate("NgayLap"));
+                donHang.setTongTien( rs.getFloat("TongTien"));
+            DonBanHang.add(donHang);
+        }
+        return DonBanHang;
     }
     public static void main(String[] args) {
         DonHangBanDAO dhb = new DonHangBanDAO();
