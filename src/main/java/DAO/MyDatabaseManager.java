@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import static DAO.XuLyDatabase_DAO.checkTrangThaiLogin;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -55,7 +57,55 @@ public class MyDatabaseManager {
     }
 
     
+public void closeConnection(Connection conn){
+            try {
+                if(conn!=null)
+                    conn.close();
+                    System.out.println("Đóng kết nối DB thành công!");
+            } catch (SQLException ex) {
+                System.out.println("Đóng kết nối DB thất bại!");
+                ex.printStackTrace();
+            }
+        }
+public void LoginQuanTri(String TenDangNhap, String MatKhau){  
+            PreparedStatement ps = null;
+            ResultSet result = null;
+            Connection connection = null;
+            
+            try {
+                    connection = this.connectDB();
+                    String query = "SELECT * FROM tbl_nhanvien\n" + "WHERE TenDangNhap = ? AND MatKhau = ?";
 
+                    ps = connection.prepareStatement(query);
+                    ps.setString(1, TenDangNhap);
+                    ps.setString(2, MatKhau);
+
+                    result = ps.executeQuery();
+                    
+                    if (result.next()){
+                        checkTrangThaiLogin = 1;
+                        JOptionPane.showMessageDialog(null,"Đăng nhập thành công!");
+         
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Sai thông tin đăng nhập! Mời nhập lại!");
+//                        txfTenTaiKhoan.requestFocus();
+                    }
+                    
+                }catch(Exception e){
+                        System.out.print(e);
+                }
+            
+            finally{
+            try{
+                this.closeConnection(connection);
+//                ps.close();
+//                result.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+ 
+        }
     //test connection
     public static void main(String[] args) {
         MyDatabaseManager.connectDB();

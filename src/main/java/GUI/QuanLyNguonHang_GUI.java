@@ -4,31 +4,15 @@
  */
 package GUI;
 
-import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFileChooser;
+import DTO.NguonHang;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import DTO.*;
-import DAO.*;
 import BUS.*;
-import java.beans.Customizer;
 import java.sql.Date;
-import java.util.*;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
 /**
  *
  * @author MSI VN
@@ -464,7 +448,6 @@ public class QuanLyNguonHang_GUI extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Khách hàng không tồn tại", "Cảnh báo", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbtTimActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

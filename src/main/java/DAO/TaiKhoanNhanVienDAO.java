@@ -4,6 +4,7 @@
  */
 package DAO;
 import DTO.*;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,9 +18,37 @@ import java.util.logging.Logger;
  */
 public class TaiKhoanNhanVienDAO extends MyDatabaseManager{
     TaikhoanNhanvien taikhoanNhanvien = new TaikhoanNhanvien();
+     private MyDatabaseManager xuLyDB = null;
+    private Connection connection = null;
+    private PreparedStatement ps = null;
+    private ResultSet resultSet = null;
     public TaiKhoanNhanVienDAO(){
         TaiKhoanNhanVienDAO.connectDB();
     }
+     public ResultSet LoginQuanTri(String TenDangNhap, String MatKhau){  
+            PreparedStatement ps = null;
+            ResultSet resultLogin = null;
+            Connection connection = null;
+            
+            try {
+                    xuLyDB = new MyDatabaseManager();
+                    connection = xuLyDB.connectDB();
+                    String query = "SELECT * FROM taikhoannhanvien\n" + "WHERE TenDangNhap = ? AND MatKhau = ? ";
+
+                    ps = connection.prepareStatement(query);
+                    ps.setString(1, TenDangNhap);
+                    ps.setString(2, MatKhau);
+
+                    resultLogin = ps.executeQuery();
+                    
+                    return resultLogin;
+                    
+                }catch(Exception e){
+                        System.out.print(e);
+                }
+ 
+          return null;
+        }
     public void listTaiKhoanNhanVien() throws SQLException{
         String sql = "select * from taikhoannhanvien";
         ResultSet rs = TaiKhoanNhanVienDAO.doReadQuery(sql);

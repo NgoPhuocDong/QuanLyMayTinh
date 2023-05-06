@@ -16,6 +16,7 @@ public class NhanVienBUS {
     NhanVienDAO nhanVienDAO;
     public  NhanVienBUS(){
         nhanVienDAO = new NhanVienDAO();
+        
     }
     public List LoadNhanVien(int page) throws SQLException{
         int numfrecords = 100;

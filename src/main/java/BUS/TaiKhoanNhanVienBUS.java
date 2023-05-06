@@ -5,6 +5,7 @@
 package BUS;
 import DAO.*;
 import DTO.*;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,12 @@ import java.util.List;
  */
 public class TaiKhoanNhanVienBUS {
     TaiKhoanNhanVienDAO taiKhoanNhanVienDAO;
+    TaiKhoanNhanVienDAO TaiKhoanNhanVienDAO = new TaiKhoanNhanVienDAO();
+    
+    public ResultSet LoginQuanTri(String TenDangNhap, String MatKhau){
+        ResultSet resultLogin = TaiKhoanNhanVienDAO.LoginQuanTri(TenDangNhap, MatKhau);
+        return resultLogin;
+    }
     public TaiKhoanNhanVienBUS(){
         taiKhoanNhanVienDAO = new TaiKhoanNhanVienDAO();
     }
