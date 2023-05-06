@@ -191,7 +191,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="id kh&#xe1;ch h&#xe0;ng"/>
+            <Property name="text" type="java.lang.String" value="id ngu&#x1ed3;n h&#xe0;ng"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">

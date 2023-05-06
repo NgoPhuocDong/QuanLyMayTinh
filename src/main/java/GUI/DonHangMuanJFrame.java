@@ -166,7 +166,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
 
         jLabel1.setText("id nhân viên lập");
 
-        jLabel3.setText("id khách hàng");
+        jLabel3.setText("id nguồn hàng");
 
         jLabel4.setText("id trạng thái");
 
