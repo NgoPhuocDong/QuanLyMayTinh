@@ -67,48 +67,49 @@ public void closeConnection(Connection conn){
                 ex.printStackTrace();
             }
         }
-public void LoginQuanTri(String TenDangNhap, String MatKhau){  
-            PreparedStatement ps = null;
-            ResultSet result = null;
-            Connection connection = null;
-            
-            try {
-                    connection = this.connectDB();
-                    String query = "SELECT * FROM tbl_nhanvien\n" + "WHERE TenDangNhap = ? AND MatKhau = ?";
-
-                    ps = connection.prepareStatement(query);
-                    ps.setString(1, TenDangNhap);
-                    ps.setString(2, MatKhau);
-
-                    result = ps.executeQuery();
-                    
-                    if (result.next()){
-                        checkTrangThaiLogin = 1;
-                        JOptionPane.showMessageDialog(null,"Đăng nhập thành công!");
-         
-                    }else{
-                        JOptionPane.showMessageDialog(null,"Sai thông tin đăng nhập! Mời nhập lại!");
-//                        txfTenTaiKhoan.requestFocus();
-                    }
-                    
-                }catch(Exception e){
-                        System.out.print(e);
-                }
-            
-            finally{
-            try{
-                this.closeConnection(connection);
-//                ps.close();
-//                result.close();
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
- 
-        }
+//public void LoginQuanTri(String TenDangNhap, String MatKhau){  
+//            PreparedStatement ps = null;
+//            ResultSet result = null;
+//            Connection connection = null;
+//            
+//            try {
+//                    connection = this.connectDB();
+//                    String query = "SELECT * FROM tbl_nhanvien\n" + "WHERE TenDangNhap = ? AND MatKhau = ?";
+//
+//                    ps = connection.prepareStatement(query);
+//                    ps.setString(1, TenDangNhap);
+//                    ps.setString(2, MatKhau);
+//
+//                    result = ps.executeQuery();
+//                    
+//                    if (result.next()){
+//                        checkTrangThaiLogin = 1;
+//                        JOptionPane.showMessageDialog(null,"Đăng nhập thành công!");
+//         
+//                    }else{
+//                        JOptionPane.showMessageDialog(null,"Sai thông tin đăng nhập! Mời nhập lại!");
+////                        txfTenTaiKhoan.requestFocus();
+//                    }
+//                    
+//                }catch(Exception e){
+//                        System.out.print(e);
+//                }
+//            
+//            finally{
+//            try{
+//                this.closeConnection(connection);
+////                ps.close();
+////                result.close();
+//            }catch (Exception e){
+//                e.printStackTrace();
+//            }
+//        }
+// 
+//        }
     //test connection
     public static void main(String[] args) {
         MyDatabaseManager.connectDB();
+       
         
     }
 }

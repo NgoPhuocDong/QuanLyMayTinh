@@ -6,7 +6,6 @@
 
 package BUS;
 import DAO.XuLyDatabase_DAO;
-import DAO.MyDatabaseManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 
@@ -16,7 +15,7 @@ import java.sql.ResultSet;
  */
 public class XuLyDatabase_BUS {
     public static int checkTrangThaiLogin_BUS = XuLyDatabase_DAO.checkTrangThaiLogin;
-    MyDatabaseManager xuLyDB = new MyDatabaseManager();
+   XuLyDatabase_DAO xuLyDB = new XuLyDatabase_DAO();
     
     
     public Connection connectDB() throws ClassNotFoundException{
