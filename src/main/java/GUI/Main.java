@@ -632,7 +632,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDangXuatMouseExited
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
-        DangNhap_GUI frmDangNhap = new DangNhap_GUI();
+        DangNhap_GUI1 frmDangNhap = new DangNhap_GUI1();
 
         frmDangNhap.setVisible(true);
         this.setVisible(false);
