@@ -26,7 +26,7 @@ public class ThongKeJPanel extends javax.swing.JPanel {
     DefaultTableModel jtbThongKeModel;
     DefaultTableModel jtbTKDHMuaModel;
     DonHangBanBUS donHangBanBUS = new DonHangBanBUS();
-//    DonHangMua1BUS donHangMua1BUS = new DonHangMua1BUS();
+    DonHangMuaBUS donHangMuaBUS = new DonHangMuaBUS();
     
     DecimalFormat DecimalFormat = new DecimalFormat("#");
     /**
@@ -35,10 +35,12 @@ public class ThongKeJPanel extends javax.swing.JPanel {
     public ThongKeJPanel() throws Exception {
         initComponents();
         LoadDataTableDonHangBan();
-//        LoadDataTableDonHangMua();
-        TongDoanhThu();
+        LoadDataTableDonHangMua();
+        TongDoanhThuBan();
+        TongDoanhThuMua();
 //        this.setLocationRelativeTo(null);
-        setDataToChart(jpnDonHangBan3);
+        setDataToChartDHB(jpnDonHangBan3);
+        setDataToChartDHM(jpnDonHangMua);
     }
     private void LoadDataTableDonHangBan(){
         jtbThongKeModel = new DefaultTableModel();
@@ -52,42 +54,65 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         }
         jtbThongKeDHB3.setModel(jtbThongKeModel);
     }
-//    private void LoadDataTableDonHangMua(){
-//        jtbTKDHMuaModel = new DefaultTableModel();
-//        jtbTKDHMuaModel.setColumnIdentifiers(new String[]{"Mã hóa đơn","Ngày Bán","Tổng tiền"});
-//        try {
-//            ArrayList<DonHangMua1> donHangMua1s = donHangMua1BUS.GetAll();
-//
-//            initTableDonHangMua(donHangMua1s);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        jtbTKDonHangMua.setModel(jtbTKDHMuaModel);
-//    }
+    private void LoadDataTableDonHangMua(){
+        jtbTKDHMuaModel = new DefaultTableModel();
+        jtbTKDHMuaModel.setColumnIdentifiers(new String[]{"Mã hóa đơn","Ngày Bán","Tổng tiền"});
+        try {
+            ArrayList<DonHangMua> donHangMuas = donHangMuaBUS.getHoaDonAll();
+
+            initTableDonHangMua(donHangMuas);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        jtbTKDonHangMua.setModel(jtbTKDHMuaModel);
+    }
     private void initTableDonHangBan(ArrayList<DonHangBan> donHangBans){
         for(DonHangBan hd : donHangBans){
             jtbThongKeModel.addRow(new Object[]{hd.getID(),hd.getNgayLap(),DecimalFormat.format(hd.getTongTien())});
         }
     }
-//    private void initTableDonHangMua(ArrayList<DonHangMua1> donHangMua1s){
-//        for(DonHangMua1 hd : donHangMua1s){
-//            jtbTKDHMuaModel.addRow(new Object[]{hd.getID(),hd.getNgayLap(),DecimalFormat.format(hd.getTongTien())});
-//        }
-//    }
-    private float TongDoanhThu(){
+    private void initTableDonHangMua(ArrayList<DonHangMua> donHangMuas){
+        for(DonHangMua hd : donHangMuas){
+            jtbTKDHMuaModel.addRow(new Object[]{hd.getID(),hd.getNgayLap(),DecimalFormat.format(hd.getTongTien())});
+        }
+    }
+    private float TongDoanhThuBan(){
         float Tong = 0;
         try {
             ArrayList<DonHangBan> donHangBans = donHangBanBUS.getHoaDonAll();
+            ArrayList<DonHangMua> donHangMuas = donHangMuaBUS.getHoaDonAll();
             for(DonHangBan dhb : donHangBans){
                 Tong += dhb.getTongTien();
+            }
+            for(DonHangMua dhm : donHangMuas){
+                Tong += dhm.getTongTien();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         jlbDoanhThu.setText(DecimalFormat.format(Tong)+"");
+        jlbDoanhThuaMua.setText(DecimalFormat.format(Tong)+"");
+
         return Tong;
     }
-    private void setDataToChart(JPanel jpnDonHangBan3) throws Exception{
+    private float TongDoanhThuMua(){
+        float Tong = 0;
+        try {
+            
+            ArrayList<DonHangMua> donHangMuas = donHangMuaBUS.getHoaDonAll();
+           
+            for(DonHangMua dhm : donHangMuas){
+                Tong += dhm.getTongTien();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        jlbDoanhThuaMua.setText(DecimalFormat.format(Tong)+"");
+
+        return Tong;
+    }
+    private void setDataToChartDHB(JPanel jpnDonHangBan3) throws Exception{
         List<DonHangBan> donHangBans = (ArrayList<DonHangBan>) donHangBanBUS.getHoaDonAll();
         if(donHangBans != null){
             DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -103,6 +128,24 @@ public class ThongKeJPanel extends javax.swing.JPanel {
             jpnDonHangBan3.add(chartPanel);
             jpnDonHangBan3.validate();
             jpnDonHangBan3.repaint();
+        }
+    }
+    private void setDataToChartDHM(JPanel jpnDonHangMua) throws Exception{
+        List<DonHangMua> donHangMuas = (ArrayList<DonHangMua>) donHangMuaBUS.getHoaDonAll();
+        if(donHangMuas != null){
+            DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+            for(DonHangMua dhm : donHangMuas){
+                dataset.addValue(dhm.getTongTien(), "Doanh thu trong ngày bán được", dhm.getNgayLap());
+            }
+            
+            JFreeChart chart = ChartFactory.createBarChart("Thống Kê Doanh Thu", "Thời Gian", "Doanh Thu (VND)", dataset);
+            ChartPanel chartPanel = new ChartPanel(chart);
+            chartPanel.setPreferredSize(new Dimension(jpnDonHangMua.getWidth(),450));
+            jpnDonHangMua.removeAll();
+            jpnDonHangMua.setLayout(new CardLayout());
+            jpnDonHangMua.add(chartPanel);
+            jpnDonHangMua.validate();
+            jpnDonHangMua.repaint();
         }
     }
 
@@ -195,12 +238,15 @@ public class ThongKeJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlbDoanhThu)
-                .addGap(0, 289, Short.MAX_VALUE))
+                .addGap(0, 277, Short.MAX_VALUE))
             .addComponent(jpnDonHangBan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Thống Kê Đơn Hàng Bán", jPanel4);
         jPanel4.getAccessibleContext().setAccessibleParent(jTabbedPane1);
+
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ĐƠN HÀNG MUA", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 24), new java.awt.Color(204, 0, 204))); // NOI18N
 
         jtbTKDonHangMua.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -219,7 +265,7 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         jpnDonHangMua.setLayout(jpnDonHangMuaLayout);
         jpnDonHangMuaLayout.setHorizontalGroup(
             jpnDonHangMuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGap(0, 521, Short.MAX_VALUE)
         );
         jpnDonHangMuaLayout.setVerticalGroup(
             jpnDonHangMuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,24 +285,23 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlbDoanhThuaMua, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addComponent(jlbDoanhThuaMua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpnDonHangMua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jpnDonHangMua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jlbDoanhThuaMua))
-                .addGap(0, 214, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlbDoanhThuaMua)
+                .addGap(0, 308, Short.MAX_VALUE))
             .addComponent(jpnDonHangMua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -266,11 +311,11 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 822, Short.MAX_VALUE)
+            .addGap(0, 983, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGap(0, 607, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Doanh Thu", jPanel2);
@@ -279,11 +324,14 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 983, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 

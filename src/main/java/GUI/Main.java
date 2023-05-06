@@ -62,7 +62,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
@@ -77,7 +77,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
@@ -92,7 +92,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnTrangChu);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);     
@@ -107,7 +107,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnTrangChu);
             btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
@@ -122,7 +122,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
@@ -130,7 +130,7 @@ public class Main extends javax.swing.JFrame {
         }
         
         if (btnClicked == 7){
-            btnColorHover(btnQuanLyHD);
+            btnColorHover(btnQuanLyDHBan);
             
             //btnColorOrigin(btnQuanLyNV);
             btnColorOrigin(btnQuanLyKH);
@@ -152,7 +152,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnTrangChu);
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
@@ -167,7 +167,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnNhanVien);
             btnColorOrigin(btnTrangChu);
@@ -180,7 +180,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnTrangChu);
             btnColorOrigin(btnNhanVien);
@@ -194,7 +194,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
         }
@@ -216,7 +216,7 @@ public class Main extends javax.swing.JFrame {
         btnQuanLyNguonHang = new javax.swing.JButton();
         btnQuanLySP = new javax.swing.JButton();
         btnQuanLyDM = new javax.swing.JButton();
-        btnQuanLyHD = new javax.swing.JButton();
+        btnQuanLyDHBan = new javax.swing.JButton();
         btnThongKe = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -361,30 +361,30 @@ public class Main extends javax.swing.JFrame {
         });
         pnMenu.add(btnQuanLyDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 255, 39));
 
-        btnQuanLyHD.setBackground(new java.awt.Color(128, 216, 255));
-        btnQuanLyHD.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnQuanLyHD.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\icons8-receipt-26.png"));
-        btnQuanLyHD.setText("Quản lý hóa đơn");
-        btnQuanLyHD.setBorder(null);
-        btnQuanLyHD.setBorderPainted(false);
-        btnQuanLyHD.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnQuanLyHD.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnQuanLyDHBan.setBackground(new java.awt.Color(128, 216, 255));
+        btnQuanLyDHBan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnQuanLyDHBan.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\icons8-receipt-26.png"));
+        btnQuanLyDHBan.setText("Quản lý hóa đơn");
+        btnQuanLyDHBan.setBorder(null);
+        btnQuanLyDHBan.setBorderPainted(false);
+        btnQuanLyDHBan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnQuanLyDHBan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnQuanLyHDMouseClicked(evt);
+                btnQuanLyDHBanMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnQuanLyHDMouseEntered(evt);
+                btnQuanLyDHBanMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnQuanLyHDMouseExited(evt);
+                btnQuanLyDHBanMouseExited(evt);
             }
         });
-        btnQuanLyHD.addActionListener(new java.awt.event.ActionListener() {
+        btnQuanLyDHBan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyHDActionPerformed(evt);
+                btnQuanLyDHBanActionPerformed(evt);
             }
         });
-        pnMenu.add(btnQuanLyHD, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 255, 39));
+        pnMenu.add(btnQuanLyDHBan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 255, 39));
 
         btnThongKe.setBackground(new java.awt.Color(128, 216, 255));
         btnThongKe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -721,26 +721,26 @@ public class Main extends javax.swing.JFrame {
 //        showPanel(pnQLDM);
     }//GEN-LAST:event_btnQuanLyDMActionPerformed
 
-    private void btnQuanLyHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyHDMouseClicked
+    private void btnQuanLyDHBanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyDHBanMouseClicked
         btnClicked = 7;
         btnClicked();
-    }//GEN-LAST:event_btnQuanLyHDMouseClicked
+    }//GEN-LAST:event_btnQuanLyDHBanMouseClicked
 
-    private void btnQuanLyHDMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyHDMouseEntered
-        btnColorHover(btnQuanLyHD);
-    }//GEN-LAST:event_btnQuanLyHDMouseEntered
+    private void btnQuanLyDHBanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyDHBanMouseEntered
+        btnColorHover(btnQuanLyDHBan);
+    }//GEN-LAST:event_btnQuanLyDHBanMouseEntered
 
-    private void btnQuanLyHDMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyHDMouseExited
+    private void btnQuanLyDHBanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyDHBanMouseExited
         if (btnClicked != 7){
-            btnColorOrigin(btnQuanLyHD);
+            btnColorOrigin(btnQuanLyDHBan);
         }
-    }//GEN-LAST:event_btnQuanLyHDMouseExited
+    }//GEN-LAST:event_btnQuanLyDHBanMouseExited
 
-    private void btnQuanLyHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyHDActionPerformed
-        QuanLyHoaDon_GUI pnQLHD = new QuanLyHoaDon_GUI();
+    private void btnQuanLyDHBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyDHBanActionPerformed
+        DonHangBanJPanel pnQLHD = new DonHangBanJPanel();
 
         showPanel(pnQLHD);
-    }//GEN-LAST:event_btnQuanLyHDActionPerformed
+    }//GEN-LAST:event_btnQuanLyDHBanActionPerformed
 
     private void btnThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThongKeMouseClicked
         btnClicked = 9;
@@ -826,9 +826,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuanLyPhieuNhapMouseExited
 
     private void btnQuanLyPhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyPhieuNhapActionPerformed
-//        QuanLyNhapHang_GUI pnQLNH = new QuanLyNhapHang_GUI();
-//
-//        showPanel(pnQLNH);
+        DonHangMuaJPanel pnQLNH = new DonHangMuaJPanel();
+
+        showPanel(pnQLNH);
     }//GEN-LAST:event_btnQuanLyPhieuNhapActionPerformed
 
     private void lbExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExitMouseClicked
@@ -910,8 +910,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnBienBanKiemKe;
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnNhanVien;
+    private javax.swing.JButton btnQuanLyDHBan;
     private javax.swing.JButton btnQuanLyDM;
-    private javax.swing.JButton btnQuanLyHD;
     private javax.swing.JButton btnQuanLyKH;
     private javax.swing.JButton btnQuanLyNguonHang;
     private javax.swing.JButton btnQuanLyPhieuNhap;
