@@ -5,10 +5,11 @@
 package GUI;
 
 import DTO.DonHangMua;
+import BUS.NguonHangBus;
 import DTO.ChiTietDonHangMua;
 import DAO.*;
 import BUS.*;
-import DTO.KhachHang;
+import DTO.NguonHang;
 import DTO.NhanVien;
 import DTO.SanPham;
 import DTO.TrangThaiMua;
@@ -60,7 +61,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
     
     private void initTable(){
         jtbDonHangMuamodel = new DefaultTableModel();
-        jtbDonHangMuamodel.setColumnIdentifiers(new String[] {"ID","idNhanVien","TenKhachHang","idTrangThai","TenTrangThai","NgayLap","TongTien"});
+        jtbDonHangMuamodel.setColumnIdentifiers(new String[] {"ID","idNhanVien","TenNguonHang","idTrangThai","TenTrangThai","NgayLap","TongTien"});
         jtbDonHangMua.setModel(jtbDonHangMuamodel);
         
         jtbChiTietDonHangMuamodel = new DefaultTableModel();
@@ -72,8 +73,8 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
             DonHangMuaBUS donHangMuaBUS = new DonHangMuaBUS();
             List<DonHangMua> list = donHangMuaBUS.LoadDonHangMua(WIDTH);
 
-            KhachHangBUS khachHangBUS = new KhachHangBUS();
-            List<KhachHang> listkh = khachHangBUS.LoadKhachHang(WIDTH);
+            NguonHangBus khachHangBUS = new NguonHangBus();
+            List<NguonHang> listkh = khachHangBUS.LoadNguonHang(WIDTH);
 
             TrangThaiMuaBUS trangThaiBUS = new TrangThaiMuaBUS();
             List<TrangThaiMua> listtt = trangThaiBUS.LoadTrangThaiMua(WIDTH);
@@ -84,9 +85,9 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
                 List<String> customerNames = new ArrayList<>();
                 List<String> trangThaiMua = new ArrayList<>();
                 // Find all customers with the same ID as the current order's customer ID
-                for (KhachHang kh : listkh) {
-                    if (kh.getID() == dh.getIdKhachHang()) {
-                        customerNames.add(kh.getTenKhachHang());
+                for (NguonHang kh : listkh) {
+                    if (kh.getID() == dh.getIdNguonHang()) {
+                        customerNames.add(kh.getTenNguonHang());
                     }
                 }
                 for (TrangThaiMua tt : listtt) {
@@ -124,7 +125,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jtfidNhanVienLap = new javax.swing.JTextField();
-        jtfidKhachHang = new javax.swing.JTextField();
+        jtfidNguonHang = new javax.swing.JTextField();
         jtfidTrangThai = new javax.swing.JTextField();
         jtfTongTien = new javax.swing.JTextField();
         jtfTimKiem = new javax.swing.JTextField();
@@ -179,9 +180,9 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
             }
         });
 
-        jtfidKhachHang.addActionListener(new java.awt.event.ActionListener() {
+        jtfidNguonHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfidKhachHangActionPerformed(evt);
+                jtfidNguonHangActionPerformed(evt);
             }
         });
 
@@ -288,7 +289,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
                                                         .addComponent(btnCapNhat)))
                                                 .addGap(18, 18, 18)
                                                 .addComponent(btnXoa))))))
-                            .addComponent(jtfidKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfidNguonHang, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jdtNgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,7 +321,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jtfidKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtfidNguonHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnLuu)
                         .addComponent(btnCapNhat)
                         .addComponent(btnXoa)))
@@ -606,9 +607,9 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfidNhanVienLapActionPerformed
 
-    private void jtfidKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfidKhachHangActionPerformed
+    private void jtfidNguonHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfidNguonHangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtfidKhachHangActionPerformed
+    }//GEN-LAST:event_jtfidNguonHangActionPerformed
 
     private void jtfidTrangThaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfidTrangThaiActionPerformed
         // TODO add your handling code here:
@@ -634,7 +635,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
             else{
                 for(DonHangMua dh : list){
                     jtfidNhanVienLap.setText(String.valueOf(dh.getIdNhanVienLap()));
-                    jtfidKhachHang.setText(String.valueOf(dh.getIdKhachHang()));
+                    jtfidNguonHang.setText(String.valueOf(dh.getIdNguonHang()));
                     jtfidTrangThai.setText(String.valueOf(dh.getIdTrangThai()));
                     jdtNgayLap.setDate(dh.getNgayLap());
                     jtfTongTien.setText(String.valueOf(dh.getTongTien()));
@@ -650,14 +651,14 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         DonHangMua donHang = new DonHangMua();
         try {
-            if(jtfidKhachHang.getText().isEmpty()){
+            if(jtfidNguonHang.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "Nhập lại");
                 return;
             }
             
             donHang = this.donHangUpdate;
             donHang.setIdNhanVienLap(Integer.parseInt(jtfidNhanVienLap.getText()));
-            donHang.setIdKhachHang(Integer.parseInt(jtfidKhachHang.getText()));
+            donHang.setIdNguonHang(Integer.parseInt(jtfidNguonHang.getText()));
             donHang.setIdTrangThai(Integer.parseInt(jtfidTrangThai.getText()));
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String finddate =  sdf.format(jdtNgayLap.getDate());
@@ -672,7 +673,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
         if(donHangBUS.updateDonHangMua(donHang)>0){
             JOptionPane.showMessageDialog(null, "Update thành công");
             jtfidNhanVienLap.setText("");
-            jtfidKhachHang.setText("");
+            jtfidNguonHang.setText("");
             jtfidTrangThai.setText("");
             jdtNgayLap.cleanup();
             jtfTongTien.setText("");
@@ -709,7 +710,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         // TODO add your handling code here:
         DonHangMua donHang = new DonHangMua();
-        if(jtfidNhanVienLap.getText().isBlank()|| jtfidKhachHang.getText().isBlank() || jdtNgayLap.getDate()== null
+        if(jtfidNhanVienLap.getText().isBlank()|| jtfidNguonHang.getText().isBlank() || jdtNgayLap.getDate()== null
             || jtfidTrangThai.getText().isBlank()){
             JOptionPane.showMessageDialog(this, "Không được điền thiếu thông tin nhân viên");
             return;
@@ -721,7 +722,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
             }
             donHang.setID(donhangmuaid);
             donHang.setIdNhanVienLap(Integer.parseInt(jtfidNhanVienLap.getText()));
-            donHang.setIdKhachHang(Integer.parseInt(jtfidKhachHang.getText()));
+            donHang.setIdNguonHang(Integer.parseInt(jtfidNguonHang.getText()));
             donHang.setIdTrangThai(Integer.parseInt(jtfidTrangThai.getText()));
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String finddate =  sdf.format(jdtNgayLap.getDate()).toString();
@@ -731,7 +732,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
             if(donHangBUS.saveDonHangMua(donHang) > 0){
                 JOptionPane.showMessageDialog(this, "Thêm đơn hàng bán thành công");
                 jtfidNhanVienLap.setText("");
-                jtfidKhachHang.setText("");
+                jtfidNguonHang.setText("");
                 jtfidTrangThai.setText("");
                 jdtNgayLap.cleanup();
                 jtfTongTien.setText("");
@@ -758,7 +759,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
                 donHangDelete = this.donHangBUS.getDonHangMua(id);
                 if(dh != null){
                     jtfidNhanVienLap.setText(String.valueOf(dh.getIdNhanVienLap()));
-                    jtfidKhachHang.setText(String.valueOf(dh.getIdKhachHang()));
+                    jtfidNguonHang.setText(String.valueOf(dh.getIdNguonHang()));
                     jtfidTrangThai.setText(String.valueOf(dh.getIdTrangThai()));
                     jdtNgayLap.setDate(dh.getNgayLap());
                     jtfTongTien.setText(String.valueOf(DecimalFormat.format(dh.getTongTien())));
@@ -801,7 +802,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
             initTable();
             for(DonHangMua donHang : list){
                 jtbDonHangMuamodel.addRow(new Object[]{
-                    donHang.getID(),donHang.getIdNhanVienLap(),donHang.getIdKhachHang(),donHang.getIdTrangThai(),donHang.getNgayLap(),
+                    donHang.getID(),donHang.getIdNhanVienLap(),donHang.getIdNguonHang(),donHang.getIdTrangThai(),donHang.getNgayLap(),
                     donHang.getTongTien()
                 });
             }
@@ -958,7 +959,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         // TODO add your handling code here:
         jtfidNhanVienLap.setText("");
-        jtfidKhachHang.setText("");
+        jtfidNguonHang.setText("");
         jtfidTrangThai.setText("");
                 jdtNgayLap.cleanup();
                 jtfTongTien.setText("");
@@ -1085,7 +1086,7 @@ public class DonHangMuanJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jtfTimKiem;
     private javax.swing.JTextField jtfTongTien;
     private javax.swing.JTextField jtfidDonHangMua;
-    private javax.swing.JTextField jtfidKhachHang;
+    private javax.swing.JTextField jtfidNguonHang;
     private javax.swing.JTextField jtfidNhanVienLap;
     private javax.swing.JTextField jtfidSanPham;
     private javax.swing.JTextField jtfidTrangThai;

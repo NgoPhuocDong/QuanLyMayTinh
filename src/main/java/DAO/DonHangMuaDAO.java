@@ -31,11 +31,11 @@ public class DonHangMuaDAO extends MyDatabaseManager{
         ResultSet rs = DonHangMuaDAO.doReadQuery(sql);
         if(rs != null){
             int i = 1;
-            System.out.println("TT \t ID \t idNhanVienLap \t\t idKhachHang\t idTrangThai \t NgayLap \t TongTien");
+            System.out.println("TT \t ID \t idNhanVienLap \t\t idNguonHang\t idTrangThai \t NgayLap \t TongTien");
             while (rs.next()) {
                  System.out.print(i + "\t" + rs.getInt("ID"));
                 System.out.println("\t\t" + rs.getInt("idNhanVienLap")
-                        + "\t\t\t" + rs.getInt("idKhachHang")
+                        + "\t\t\t" + rs.getInt("idNguonHang")
                         + "\t\t\t" + rs.getInt("idTrangThai")
                         + "\t\t\t" + rs.getDate("NgayLap")
                         + "\t\t\t" + rs.getFloat("TongTien"));
@@ -58,7 +58,7 @@ public class DonHangMuaDAO extends MyDatabaseManager{
                 DonHangMua donHang = new DonHangMua();
                 donHang.setID(rs.getInt("ID"));
                 donHang.setIdNhanVienLap(rs.getInt("idNhanVienLap"));
-                donHang.setIdKhachHang(rs.getInt("idKhachHang"));
+                donHang.setIdNguonHang(rs.getInt("idNguonHang"));
                 donHang.setIdTrangThai(rs.getInt("idTrangThai"));
                 donHang.setNgayLap(rs.getDate("NgayLap"));
                 donHang.setTongTien(rs.getFloat("TongTien"));
@@ -79,7 +79,7 @@ public class DonHangMuaDAO extends MyDatabaseManager{
             while(rs.next()){
                 donHang.setID(rs.getInt("ID"));
                 donHang.setIdNhanVienLap(rs.getInt("idNhanVienLap"));
-                donHang.setIdKhachHang(rs.getInt("idKhachHang"));
+                donHang.setIdNguonHang(rs.getInt("idNguonHang"));
                 donHang.setIdTrangThai(rs.getInt("idTrangThai"));
 //                nhanVien.setNgaySinh(rs.getString("NgaySinh"));
                 donHang.setNgayLap(rs.getDate("NgayLap"));
@@ -89,11 +89,11 @@ public class DonHangMuaDAO extends MyDatabaseManager{
         return donHang;
     }
     public int saveDonHangMua(DonHangMua donHang) throws SQLException{
-        String sql = "Insert donhangmua (ID,idNhanVienLap,idKhachHang,idTrangThai,NgayLap,TongTien) value (?,?,?,?,?,?)";
+        String sql = "Insert donhangmua (ID,idNhanVienLap,idNguonHang,idTrangThai,NgayLap,TongTien) value (?,?,?,?,?,?)";
         PreparedStatement p = DonHangMuaDAO.connectDB().prepareStatement(sql);
         p.setInt(1, donHang.getID());
         p.setInt(2, donHang.getIdNhanVienLap());
-        p.setInt(3, donHang.getIdKhachHang());
+        p.setInt(3, donHang.getIdNguonHang());
         p.setInt(4, donHang.getIdTrangThai());
         p.setDate(5, donHang.getNgayLap());
         p.setFloat(6, donHang.getTongTien());
@@ -101,12 +101,12 @@ public class DonHangMuaDAO extends MyDatabaseManager{
         return result;
     }
     public  int updateDonHangMua (DonHangMua donHang) throws SQLException{
-        String sql = "Update donhangmua SET idNhanVienLap = ? , idKhachHang = ? , idTrangThai = ? , NgayLap = ? , TongTien = ?"
+        String sql = "Update donhangmua SET idNhanVienLap = ? , idNguonHang = ? , idTrangThai = ? , NgayLap = ? , TongTien = ?"
                 + " WHERE ID = ?";
         PreparedStatement p = DonHangMuaDAO.connectDB().prepareStatement(sql);
         
         p.setInt(1, donHang.getIdNhanVienLap());
-        p.setInt(2, donHang.getIdKhachHang());
+        p.setInt(2, donHang.getIdNguonHang());
         p.setInt(3, donHang.getIdTrangThai());
         p.setDate(4, donHang.getNgayLap());
         p.setFloat(5, donHang.getTongTien());
@@ -122,10 +122,10 @@ public class DonHangMuaDAO extends MyDatabaseManager{
 
         return true;
     }
-    public List findDonHangMua(String idKhachHang) throws SQLException{
-        String sql = "SELECT * FROM donhangmua WHERE  idKhachHang LIKE ?";
+    public List findDonHangMua(String idNguonHang) throws SQLException{
+        String sql = "SELECT * FROM donhangmua WHERE  idNguonHang LIKE ?";
         PreparedStatement p = DonHangMuaDAO.connectDB().prepareStatement(sql);
-        p.setString(1,idKhachHang);
+        p.setString(1,idNguonHang);
         ResultSet rs = p.executeQuery();
         List list = new ArrayList();
         
@@ -135,7 +135,7 @@ public class DonHangMuaDAO extends MyDatabaseManager{
                 DonHangMua donHang = new DonHangMua();
                 donHang.setID(rs.getInt("ID"));
                 donHang.setIdNhanVienLap(rs.getInt("idNhanVienLap"));
-                donHang.setIdKhachHang(rs.getInt("idKhachHang"));
+                donHang.setIdNguonHang(rs.getInt("idNguonHang"));
                 donHang.setIdTrangThai(rs.getInt("idTrangThai"));
                 donHang.setNgayLap(rs.getDate("NgayLap"));
                 donHang.setTongTien(rs.getFloat("TongTien"));
@@ -152,7 +152,7 @@ public class DonHangMuaDAO extends MyDatabaseManager{
             DonHangMua donHang = new DonHangMua();
                 donHang.setID(rs.getInt("ID"));
                 donHang.setIdNhanVienLap(rs.getInt("idNhanVienLap"));
-                donHang.setIdKhachHang(rs.getInt("idKhachHang"));
+                donHang.setIdNguonHang(rs.getInt("idNguonHang"));
                 donHang.setIdTrangThai(rs.getInt("idTrangThai"));
                 donHang.setNgayLap(rs.getDate("NgayLap"));
                 donHang.setTongTien( rs.getFloat("TongTien"));

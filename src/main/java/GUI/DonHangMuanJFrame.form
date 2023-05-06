@@ -107,7 +107,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="jtfidKhachHang" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
+                              <Component id="jtfidNguonHang" alignment="0" min="-2" pref="161" max="-2" attributes="0"/>
                               <Component id="jdtNgayLap" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -148,7 +148,7 @@
                           <Component id="jLabel3" min="-2" pref="26" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                          <Component id="jtfidKhachHang" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfidNguonHang" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnLuu" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCapNhat" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnXoa" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -214,9 +214,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfidNhanVienLapActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jtfidKhachHang">
+        <Component class="javax.swing.JTextField" name="jtfidNguonHang">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfidKhachHangActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfidNguonHangActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jtfidTrangThai">

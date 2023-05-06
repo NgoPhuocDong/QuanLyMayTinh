@@ -41,9 +41,9 @@ public class DonHangMuaBUS {
         boolean result = donHangDAO.deleteDonHangMua(donHang);
         return result;
     }
-    public List findDonHangMua(String idKhachHang) throws SQLException{
+    public List findDonHangMua(String idNguonHang) throws SQLException{
         List list = new ArrayList();
-        list = donHangDAO.findDonHangMua(idKhachHang);
+        list = donHangDAO.findDonHangMua(idNguonHang);
         return list;
     }
     public ArrayList<DonHangMua> getHoaDonAll() throws Exception{

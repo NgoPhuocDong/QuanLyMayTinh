@@ -9,7 +9,7 @@ import javax.xml.crypto.Data;
 public class DonHangMua {
     int ID;
     int idNhanVienLap;
-    int idKhachHang;
+    int idNguonHang;
     int idTrangThai;
     Date NgayLap;
     float TongTien;
@@ -17,10 +17,10 @@ public class DonHangMua {
     public DonHangMua() {
     }
 
-    public DonHangMua(int ID, int idNhanVienLap, int idKhachHang, int idTrangThai, Date NgayLap, float TongTien) {
+    public DonHangMua(int ID, int idNhanVienLap, int idNguonHang, int idTrangThai, Date NgayLap, float TongTien) {
         this.ID = ID;
         this.idNhanVienLap = idNhanVienLap;
-        this.idKhachHang = idKhachHang;
+        this.idNguonHang = idNguonHang;
         this.idTrangThai = idTrangThai;
         this.NgayLap = NgayLap;
         this.TongTien = TongTien;
@@ -42,12 +42,12 @@ public class DonHangMua {
         this.idNhanVienLap = idNhanVienLap;
     }
 
-    public int getIdKhachHang() {
-        return idKhachHang;
+    public int getIdNguonHang() {
+        return idNguonHang;
     }
 
-    public void setIdKhachHang(int idKhachHang) {
-        this.idKhachHang = idKhachHang;
+    public void setIdNguonHang(int idNguonHang) {
+        this.idNguonHang = idNguonHang;
     }
 
     public int getIdTrangThai() {
