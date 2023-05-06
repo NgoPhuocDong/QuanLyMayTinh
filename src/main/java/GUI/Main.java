@@ -58,10 +58,8 @@ public class Main extends javax.swing.JFrame {
             btnColorHover(btnTrangChu);
             
             //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnQuanLyKH);
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDM);
             btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
@@ -69,29 +67,13 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyPhieuNhap);
         }
         
-        if (btnClicked == 3){
-            btnColorHover(btnQuanLyKH);
-            
-            //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnQuanLyNguonHang);
-            btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyDHBan);
-            btnColorOrigin(btnBienBanKiemKe);
-            btnColorOrigin(btnThongKe);
-            btnColorOrigin(btnNhanVien);
-            btnColorOrigin(btnQuanLyPhieuNhap);
-        }
         
-        if (btnClicked == 4){
+        if (btnClicked == 2){
             btnColorHover(btnQuanLyNguonHang);
             
             //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnQuanLyKH);
             btnColorOrigin(btnTrangChu);
             btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDM);
             btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
@@ -99,14 +81,12 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyPhieuNhap);
         }
         
-        if (btnClicked == 5){
+        if (btnClicked == 3){
             btnColorHover(btnQuanLySP);
             
             //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnQuanLyKH);
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnQuanLyDM);
             btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
@@ -114,89 +94,67 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyPhieuNhap);
         }
         
-        if (btnClicked == 6){
-            btnColorHover(btnQuanLyDM);
+        
+        if (btnClicked == 4){
+            btnColorHover(btnQuanLyDHBan);
             
             //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnQuanLyKH);
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnTrangChu);
+            btnColorOrigin(btnBienBanKiemKe);
+            btnColorOrigin(btnThongKe);
+            btnColorOrigin(btnNhanVien);
+            btnColorOrigin(btnQuanLyPhieuNhap);
+        }
+        
+        if (btnClicked == 5){
+            btnColorHover(btnQuanLyPhieuNhap);
+            
+            //btnColorOrigin(btnQuanLyNV);
+            btnColorOrigin(btnQuanLyNguonHang);
+            btnColorOrigin(btnQuanLySP);
             btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
+            btnColorOrigin(btnTrangChu);
+            btnColorOrigin(btnNhanVien);
+            btnColorOrigin(btnThongKe);
+        }
+        
+        if (btnClicked == 6){
+            btnColorHover(btnBienBanKiemKe);
+            
+            //btnColorOrigin(btnQuanLyNV);
+            btnColorOrigin(btnQuanLyNguonHang);
+            btnColorOrigin(btnQuanLySP);
+            btnColorOrigin(btnQuanLyDHBan);
+            btnColorOrigin(btnTrangChu);
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
             btnColorOrigin(btnQuanLyPhieuNhap);
         }
         
         if (btnClicked == 7){
-            btnColorHover(btnQuanLyDHBan);
-            
-            //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnQuanLyKH);
-            btnColorOrigin(btnQuanLyNguonHang);
-            btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnBienBanKiemKe);
-            btnColorOrigin(btnThongKe);
-            btnColorOrigin(btnNhanVien);
-            btnColorOrigin(btnQuanLyPhieuNhap);
-        }
-        
-        if (btnClicked == 8){
-            btnColorHover(btnBienBanKiemKe);
-            
-            //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnQuanLyKH);
-            btnColorOrigin(btnQuanLyNguonHang);
-            btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyDHBan);
-            btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnThongKe);
-            btnColorOrigin(btnNhanVien);
-            btnColorOrigin(btnQuanLyPhieuNhap);
-        }
-        if (btnClicked == 9){
-            btnColorHover(btnThongKe);
-            
-            //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnQuanLyPhieuNhap);
-            btnColorOrigin(btnQuanLyKH);
-            btnColorOrigin(btnQuanLyNguonHang);
-            btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyDHBan);
-            btnColorOrigin(btnBienBanKiemKe);
-            btnColorOrigin(btnNhanVien);
-            btnColorOrigin(btnTrangChu);
-        }
-        if (btnClicked == 10){
-            btnColorHover(btnQuanLyPhieuNhap);
-            
-            //btnColorOrigin(btnQuanLyNV);
-            btnColorOrigin(btnQuanLyKH);
-            btnColorOrigin(btnQuanLyNguonHang);
-            btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDM);
-            btnColorOrigin(btnQuanLyDHBan);
-            btnColorOrigin(btnBienBanKiemKe);
-            btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnNhanVien);
-            btnColorOrigin(btnThongKe);
-        }
-         if (btnClicked == 2){
             btnColorHover(btnNhanVien);
             
             btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnQuanLyKH);
             btnColorOrigin(btnQuanLyNguonHang);
             btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDM);
             btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
+        }
+        
+        if (btnClicked == 8){
+            btnColorHover(btnThongKe);
+            
+            btnColorOrigin(btnQuanLyPhieuNhap);
+            btnColorOrigin(btnQuanLyNguonHang);
+            btnColorOrigin(btnQuanLySP);
+            btnColorOrigin(btnQuanLyDHBan);
+            btnColorOrigin(btnBienBanKiemKe);
+            btnColorOrigin(btnNhanVien);
+            btnColorOrigin(btnTrangChu);
         }
         
     }
@@ -212,10 +170,8 @@ public class Main extends javax.swing.JFrame {
 
         pnMenu = new javax.swing.JPanel();
         btnDangXuat = new javax.swing.JButton();
-        btnQuanLyKH = new javax.swing.JButton();
         btnQuanLyNguonHang = new javax.swing.JButton();
         btnQuanLySP = new javax.swing.JButton();
-        btnQuanLyDM = new javax.swing.JButton();
         btnQuanLyDHBan = new javax.swing.JButton();
         btnThongKe = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -259,32 +215,7 @@ public class Main extends javax.swing.JFrame {
                 btnDangXuatActionPerformed(evt);
             }
         });
-        pnMenu.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 620, 122, 35));
-
-        btnQuanLyKH.setBackground(new java.awt.Color(128, 216, 255));
-        btnQuanLyKH.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnQuanLyKH.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\icons8-user-groups-26.png"));
-        btnQuanLyKH.setText("Quản lý khách hàng");
-        btnQuanLyKH.setBorder(null);
-        btnQuanLyKH.setBorderPainted(false);
-        btnQuanLyKH.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnQuanLyKH.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnQuanLyKHMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnQuanLyKHMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnQuanLyKHMouseExited(evt);
-            }
-        });
-        btnQuanLyKH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyKHActionPerformed(evt);
-            }
-        });
-        pnMenu.add(btnQuanLyKH, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 255, 39));
+        pnMenu.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, 122, 35));
 
         btnQuanLyNguonHang.setBackground(new java.awt.Color(128, 216, 255));
         btnQuanLyNguonHang.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -310,7 +241,7 @@ public class Main extends javax.swing.JFrame {
                 btnQuanLyNguonHangActionPerformed(evt);
             }
         });
-        pnMenu.add(btnQuanLyNguonHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 255, 39));
+        pnMenu.add(btnQuanLyNguonHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 255, 39));
 
         btnQuanLySP.setBackground(new java.awt.Color(128, 216, 255));
         btnQuanLySP.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -318,6 +249,7 @@ public class Main extends javax.swing.JFrame {
         btnQuanLySP.setText("Quản lý sản phẩm");
         btnQuanLySP.setBorder(null);
         btnQuanLySP.setBorderPainted(false);
+        btnQuanLySP.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnQuanLySP.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnQuanLySPMouseClicked(evt);
@@ -334,32 +266,7 @@ public class Main extends javax.swing.JFrame {
                 btnQuanLySPActionPerformed(evt);
             }
         });
-        pnMenu.add(btnQuanLySP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 255, 39));
-
-        btnQuanLyDM.setBackground(new java.awt.Color(128, 216, 255));
-        btnQuanLyDM.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnQuanLyDM.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\icons8-product-management-26.png"));
-        btnQuanLyDM.setText("Quản lý danh mục");
-        btnQuanLyDM.setBorder(null);
-        btnQuanLyDM.setBorderPainted(false);
-        btnQuanLyDM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnQuanLyDM.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnQuanLyDMMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnQuanLyDMMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnQuanLyDMMouseExited(evt);
-            }
-        });
-        btnQuanLyDM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQuanLyDMActionPerformed(evt);
-            }
-        });
-        pnMenu.add(btnQuanLyDM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 255, 39));
+        pnMenu.add(btnQuanLySP, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 255, 39));
 
         btnQuanLyDHBan.setBackground(new java.awt.Color(128, 216, 255));
         btnQuanLyDHBan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -384,7 +291,7 @@ public class Main extends javax.swing.JFrame {
                 btnQuanLyDHBanActionPerformed(evt);
             }
         });
-        pnMenu.add(btnQuanLyDHBan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 255, 39));
+        pnMenu.add(btnQuanLyDHBan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 255, 39));
 
         btnThongKe.setBackground(new java.awt.Color(128, 216, 255));
         btnThongKe.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -409,7 +316,7 @@ public class Main extends javax.swing.JFrame {
                 btnThongKeActionPerformed(evt);
             }
         });
-        pnMenu.add(btnThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 255, 39));
+        pnMenu.add(btnThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 255, 39));
         pnMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
         pnMenu.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 10));
 
@@ -446,6 +353,7 @@ public class Main extends javax.swing.JFrame {
         btnBienBanKiemKe.setText("Biên bản kiểm kê");
         btnBienBanKiemKe.setBorder(null);
         btnBienBanKiemKe.setBorderPainted(false);
+        btnBienBanKiemKe.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnBienBanKiemKe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBienBanKiemKeMouseClicked(evt);
@@ -462,7 +370,7 @@ public class Main extends javax.swing.JFrame {
                 btnBienBanKiemKeActionPerformed(evt);
             }
         });
-        pnMenu.add(btnBienBanKiemKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 255, 39));
+        pnMenu.add(btnBienBanKiemKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 255, 39));
 
         btnQuanLyPhieuNhap.setBackground(new java.awt.Color(128, 216, 255));
         btnQuanLyPhieuNhap.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -487,7 +395,7 @@ public class Main extends javax.swing.JFrame {
                 btnQuanLyPhieuNhapActionPerformed(evt);
             }
         });
-        pnMenu.add(btnQuanLyPhieuNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 255, 39));
+        pnMenu.add(btnQuanLyPhieuNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 255, 39));
 
         btnNhanVien.setBackground(new java.awt.Color(128, 216, 255));
         btnNhanVien.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -495,6 +403,7 @@ public class Main extends javax.swing.JFrame {
         btnNhanVien.setText("Quản lý nhân viên");
         btnNhanVien.setBorder(null);
         btnNhanVien.setBorderPainted(false);
+        btnNhanVien.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnNhanVienMouseClicked(evt);
@@ -511,7 +420,7 @@ public class Main extends javax.swing.JFrame {
                 btnNhanVienActionPerformed(evt);
             }
         });
-        pnMenu.add(btnNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 255, 39));
+        pnMenu.add(btnNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 255, 39));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\logo.png"));
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -638,29 +547,8 @@ public class Main extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
-    private void btnQuanLyKHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyKHMouseClicked
-        btnClicked = 3;
-        btnClicked();
-    }//GEN-LAST:event_btnQuanLyKHMouseClicked
-
-    private void btnQuanLyKHMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyKHMouseEntered
-        btnColorHover(btnQuanLyKH);
-    }//GEN-LAST:event_btnQuanLyKHMouseEntered
-
-    private void btnQuanLyKHMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyKHMouseExited
-        if (btnClicked != 3){
-            btnColorOrigin(btnQuanLyKH);
-        }
-    }//GEN-LAST:event_btnQuanLyKHMouseExited
-
-    private void btnQuanLyKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyKHActionPerformed
-        QuanLyKhachHang_GUI pnQLKH = new QuanLyKhachHang_GUI();
-
-        showPanel(pnQLKH);
-    }//GEN-LAST:event_btnQuanLyKHActionPerformed
-
     private void btnQuanLyNguonHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyNguonHangMouseClicked
-        btnClicked = 4;
+        btnClicked = 2;
         btnClicked();
     }//GEN-LAST:event_btnQuanLyNguonHangMouseClicked
 
@@ -669,7 +557,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuanLyNguonHangMouseEntered
 
     private void btnQuanLyNguonHangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyNguonHangMouseExited
-        if (btnClicked != 4){
+        if (btnClicked != 2){
             btnColorOrigin(btnQuanLyNguonHang);
         }
     }//GEN-LAST:event_btnQuanLyNguonHangMouseExited
@@ -680,7 +568,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuanLyNguonHangActionPerformed
 
     private void btnQuanLySPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLySPMouseClicked
-        btnClicked = 5;
+        btnClicked = 3;
         btnClicked();
     }//GEN-LAST:event_btnQuanLySPMouseClicked
 
@@ -689,7 +577,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuanLySPMouseEntered
 
     private void btnQuanLySPMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLySPMouseExited
-        if (btnClicked != 5){
+        if (btnClicked != 3){
             btnColorOrigin(btnQuanLySP);
         }
     }//GEN-LAST:event_btnQuanLySPMouseExited
@@ -700,29 +588,8 @@ public class Main extends javax.swing.JFrame {
         showPanel(spjp);
     }//GEN-LAST:event_btnQuanLySPActionPerformed
 
-    private void btnQuanLyDMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyDMMouseClicked
-        btnClicked = 6;
-        btnClicked();
-    }//GEN-LAST:event_btnQuanLyDMMouseClicked
-
-    private void btnQuanLyDMMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyDMMouseEntered
-        btnColorHover(btnQuanLyDM);
-    }//GEN-LAST:event_btnQuanLyDMMouseEntered
-
-    private void btnQuanLyDMMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyDMMouseExited
-        if (btnClicked != 6){
-            btnColorOrigin(btnQuanLyDM);
-        }
-    }//GEN-LAST:event_btnQuanLyDMMouseExited
-
-    private void btnQuanLyDMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuanLyDMActionPerformed
-//        QuanLyDanhMuc_GUI pnQLDM = new QuanLyDanhMuc_GUI();
-//
-//        showPanel(pnQLDM);
-    }//GEN-LAST:event_btnQuanLyDMActionPerformed
-
     private void btnQuanLyDHBanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyDHBanMouseClicked
-        btnClicked = 7;
+        btnClicked = 4;
         btnClicked();
     }//GEN-LAST:event_btnQuanLyDHBanMouseClicked
 
@@ -731,7 +598,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuanLyDHBanMouseEntered
 
     private void btnQuanLyDHBanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyDHBanMouseExited
-        if (btnClicked != 7){
+        if (btnClicked != 4){
             btnColorOrigin(btnQuanLyDHBan);
         }
     }//GEN-LAST:event_btnQuanLyDHBanMouseExited
@@ -743,7 +610,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuanLyDHBanActionPerformed
 
     private void btnThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThongKeMouseClicked
-        btnClicked = 9;
+        btnClicked = 8;
         btnClicked();
     }//GEN-LAST:event_btnThongKeMouseClicked
 
@@ -752,7 +619,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThongKeMouseEntered
 
     private void btnThongKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThongKeMouseExited
-        if (btnClicked != 9){
+        if (btnClicked != 8){
             btnColorOrigin(btnThongKe);
         }
     }//GEN-LAST:event_btnThongKeMouseExited
@@ -790,7 +657,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTrangChuActionPerformed
 
     private void btnBienBanKiemKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBienBanKiemKeMouseClicked
-        btnClicked = 8;
+        btnClicked = 6;
         btnClicked();
     }//GEN-LAST:event_btnBienBanKiemKeMouseClicked
 
@@ -799,7 +666,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBienBanKiemKeMouseEntered
 
     private void btnBienBanKiemKeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBienBanKiemKeMouseExited
-        if (btnClicked != 8){
+        if (btnClicked != 6){
             btnColorOrigin(btnBienBanKiemKe);
         }
     }//GEN-LAST:event_btnBienBanKiemKeMouseExited
@@ -811,7 +678,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBienBanKiemKeActionPerformed
 
     private void btnQuanLyPhieuNhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyPhieuNhapMouseClicked
-        btnClicked = 10;
+        btnClicked = 5;
         btnClicked();
     }//GEN-LAST:event_btnQuanLyPhieuNhapMouseClicked
 
@@ -820,7 +687,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuanLyPhieuNhapMouseEntered
 
     private void btnQuanLyPhieuNhapMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuanLyPhieuNhapMouseExited
-        if (btnClicked != 10){
+        if (btnClicked != 5){
             btnColorOrigin(btnQuanLyPhieuNhap);
         }
     }//GEN-LAST:event_btnQuanLyPhieuNhapMouseExited
@@ -852,7 +719,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_pnTitileBarMousePressed
 
     private void btnNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNhanVienMouseClicked
-        btnClicked = 2;
+        btnClicked = 7;
         btnClicked();
     }//GEN-LAST:event_btnNhanVienMouseClicked
 
@@ -861,7 +728,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNhanVienMouseEntered
 
     private void btnNhanVienMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNhanVienMouseExited
-        if (btnClicked != 2){
+        if (btnClicked != 7){
             btnColorOrigin(btnNhanVien);
         }
     }//GEN-LAST:event_btnNhanVienMouseExited
@@ -911,8 +778,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnNhanVien;
     private javax.swing.JButton btnQuanLyDHBan;
-    private javax.swing.JButton btnQuanLyDM;
-    private javax.swing.JButton btnQuanLyKH;
     private javax.swing.JButton btnQuanLyNguonHang;
     private javax.swing.JButton btnQuanLyPhieuNhap;
     private javax.swing.JButton btnQuanLySP;
