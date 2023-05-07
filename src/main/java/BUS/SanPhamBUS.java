@@ -5,6 +5,7 @@
 package BUS;
 import DTO.SanPham;
 import DAO.*;
+import DTO.DonHangBan;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,5 +48,9 @@ public class SanPhamBUS {
         List list = new ArrayList();
         list = sanphamDAO.findSanPham(TenSanPham);
         return list;
+    }
+    public ArrayList<SanPham> getHoaDonAll() throws Exception{
+        ArrayList<SanPham> sanPhams = sanphamDAO.GetAll();
+        return sanPhams;
     }
 }

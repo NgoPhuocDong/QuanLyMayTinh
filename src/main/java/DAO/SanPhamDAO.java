@@ -152,6 +152,24 @@ public class SanPhamDAO extends MyDatabaseManager{
         }
         return list;
     }
+     public ArrayList<SanPham> GetAll() throws Exception {
+        String sql = "select * from sanpham";
+        ResultSet rs = SanPhamDAO.doReadQuery(sql);
+        ArrayList<SanPham> sanPhams = new ArrayList<>();
+        while ( rs.next() ) {
+            SanPham sanPham = new SanPham();
+                sanPham.setID(rs.getInt("ID"));
+                sanPham.setTenSanPham(rs.getString("TenSanPham"));
+                sanPham.setIdLoaiSanPham(rs.getInt("IdLoaiSanPham"));
+                sanPham.setGia(rs.getFloat("Gia"));
+//                sanPham.setGia(rs.getString("Gia"));
+                sanPham.setMoTa(rs.getString("MoTa"));
+                sanPham.setSoLuong(rs.getInt("SoLuong"));
+                sanPham.setNgaySanXuat(rs.getDate("NgaySanXuat"));
+                sanPhams.add(sanPham);
+        }
+        return sanPhams;
+    }
     public static void main(String[] args) {
         SanPhamDAO nvdao = new SanPhamDAO();
         try {

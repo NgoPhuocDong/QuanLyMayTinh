@@ -45,6 +45,7 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
     private DonHangBan donHangUpdate = new DonHangBan();
     private DonHangBan donHangDelete = new DonHangBan();
     private int donhangbanid;
+    private float tongiten = 0;
     
     private DefaultTableModel jtbChiTietDonHangBanmodel;
     private  ChiTietDonHangBanBUS chiTietBUS = new ChiTietDonHangBanBUS();
@@ -62,6 +63,7 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
         initComponents();
         initTable();
         loadData(); 
+        jtfTongTien.setText("0");
         loadDataSanPham();
     }
     private void initTable(){
@@ -993,6 +995,7 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
             return;
         }
         try {
+//            tongiten += jtfThanhTien;
             if(jtfidDonHangBan.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "nhập lại");
                 return;
