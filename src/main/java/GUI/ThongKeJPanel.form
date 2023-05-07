@@ -363,8 +363,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Doanh Thu">
-                <Property name="tabTitle" type="java.lang.String" value="Doanh Thu"/>
+              <JTabbedPaneConstraints tabName="Th&#x1ed1;ng K&#xea; S&#x1ea3;n Ph&#x1ea9;m">
+                <Property name="tabTitle" type="java.lang.String" value="Th&#x1ed1;ng K&#xea; S&#x1ea3;n Ph&#x1ea9;m"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

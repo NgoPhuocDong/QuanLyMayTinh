@@ -420,7 +420,7 @@ public class ThongKeJPanel extends javax.swing.JPanel {
                 .addContainerGap(140, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Doanh Thu", jPanel2);
+        jTabbedPane1.addTab("Thống Kê Sản Phẩm", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
