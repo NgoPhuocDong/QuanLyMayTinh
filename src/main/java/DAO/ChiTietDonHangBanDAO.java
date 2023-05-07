@@ -84,6 +84,7 @@ public class ChiTietDonHangBanDAO extends MyDatabaseManager{
         }
         return chiTiet;
     }
+
     public int saveChiTietDonHangBan(ChiTietDonHangBan chiTiet) throws SQLException{
         String sql = "Insert chitietdonhangban (ID,idDonHangBan,idSanPham,SoLuong,DonGiaApDung,ThanhTien) value (?,?,?,?,?,?)";
         PreparedStatement p = ChiTietDonHangBanDAO.connectDB().prepareStatement(sql);

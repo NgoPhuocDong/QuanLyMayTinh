@@ -8,6 +8,7 @@ import DAO.*;
 import BUS.*;
 import java.awt.Color;
 import java.awt.HeadlessException;
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -147,6 +148,12 @@ public class BienBanKiemKeJFrame extends javax.swing.JFrame {
         btnShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnShowActionPerformed(evt);
+            }
+        });
+
+        jtfSLThucThe.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtfSLThucTheKeyPressed(evt);
             }
         });
 
@@ -423,6 +430,22 @@ public class BienBanKiemKeJFrame extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void jtfSLThucTheKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfSLThucTheKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            try {
+                BienBanKiemKe bbkk = new BienBanKiemKe();
+               
+//                jtfSlTonKho.setText(""+bbkk.getSoLuongTonKho());
+//                jtfSLThucThe.setText(""+bbkk.getSoLuongThuc());
+
+                jtfChenhLech.setText(""+(Integer.parseInt(jtfSlTonKho.getText()) - Integer.parseInt(jtfSLThucThe.getText())));
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Lỗi");
+            }
+        }
+    }//GEN-LAST:event_jtfSLThucTheKeyPressed
 
     /**
      * @param args the command line arguments

@@ -52,6 +52,8 @@ public class DangNhap_GUI1 extends javax.swing.JFrame {
         txfMatKhau = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        lblTenTaiKhoan = new javax.swing.JLabel();
+        lblMatKhau = new javax.swing.JLabel();
         pnTitle = new javax.swing.JPanel();
         lbExit = new javax.swing.JLabel();
         lbMinimize = new javax.swing.JLabel();
@@ -72,7 +74,6 @@ public class DangNhap_GUI1 extends javax.swing.JFrame {
         lblDangNhap.setText("ĐĂNG NHẬP QUẢN TRỊ");
 
         txfTenTaiKhoan.setForeground(new java.awt.Color(153, 153, 153));
-        txfTenTaiKhoan.setText("Nhập tên tài khoản...");
         txfTenTaiKhoan.setToolTipText("Nhập tên tài khoản...");
         txfTenTaiKhoan.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txfTenTaiKhoan.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -111,7 +112,6 @@ public class DangNhap_GUI1 extends javax.swing.JFrame {
         });
 
         txfMatKhau.setForeground(new java.awt.Color(153, 153, 153));
-        txfMatKhau.setText("Nhập mật khẩu...");
         txfMatKhau.setToolTipText("Nhập mật khẩu...");
         txfMatKhau.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txfMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,6 +128,18 @@ public class DangNhap_GUI1 extends javax.swing.JFrame {
             }
         });
 
+        lblTenTaiKhoan.setBackground(new java.awt.Color(255, 255, 255));
+        lblTenTaiKhoan.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTenTaiKhoan.setForeground(new java.awt.Color(255, 255, 255));
+        lblTenTaiKhoan.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\icons8-username-50.png"));
+        lblTenTaiKhoan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        lblMatKhau.setBackground(new java.awt.Color(255, 255, 255));
+        lblMatKhau.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblMatKhau.setForeground(new java.awt.Color(255, 255, 255));
+        lblMatKhau.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\icons8-password-52.png"));
+        lblMatKhau.setToolTipText("");
+
         javax.swing.GroupLayout pnDangNhapLayout = new javax.swing.GroupLayout(pnDangNhap);
         pnDangNhap.setLayout(pnDangNhapLayout);
         pnDangNhapLayout.setHorizontalGroup(
@@ -135,15 +147,19 @@ public class DangNhap_GUI1 extends javax.swing.JFrame {
             .addComponent(jSeparator2)
             .addComponent(jSeparator1)
             .addGroup(pnDangNhapLayout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(40, 40, 40)
+                .addGroup(pnDangNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblTenTaiKhoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMatKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(48, 48, 48)
                 .addGroup(pnDangNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnDangNhapLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(txfTenTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txfMatKhau))
-                .addContainerGap(64, Short.MAX_VALUE))
+                    .addComponent(txfMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnDangNhapLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(pnDangNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnDangNhapLayout.createSequentialGroup()
                         .addComponent(lblDangNhap)
@@ -158,12 +174,19 @@ public class DangNhap_GUI1 extends javax.swing.JFrame {
                 .addGap(128, 128, 128)
                 .addComponent(lblDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(txfTenTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(txfMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGroup(pnDangNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnDangNhapLayout.createSequentialGroup()
+                        .addComponent(lblTenTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(lblMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
+                    .addGroup(pnDangNhapLayout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txfTenTaiKhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(txfMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)))
                 .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -350,6 +373,7 @@ public class DangNhap_GUI1 extends javax.swing.JFrame {
                     
                     if (resultLogin.next()){
                         if (resultLogin.getString("TrangThai").equals("1")){
+                           hoTenOnline = resultLogin.getString("TenDangNhap");
                            {
                                 
                                 JOptionPane.showMessageDialog(null, "Đăng nhập thành công!"); 
@@ -434,6 +458,8 @@ public class DangNhap_GUI1 extends javax.swing.JFrame {
     private javax.swing.JLabel lbMinimize;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JLabel lblDangNhap;
+    private javax.swing.JLabel lblMatKhau;
+    private javax.swing.JLabel lblTenTaiKhoan;
     private javax.swing.JPanel pnDangNhap;
     private javax.swing.JPanel pnTitle;
     private javax.swing.JPasswordField txfMatKhau;

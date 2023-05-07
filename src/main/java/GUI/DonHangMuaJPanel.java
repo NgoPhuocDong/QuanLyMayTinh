@@ -55,6 +55,8 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
     private ChiTietDonHangMua chiTietDelete = new ChiTietDonHangMua();
     private int chitietdonhangmuaid;
     
+    private DefaultTableModel jtbSanPhammodel;
+    
     DecimalFormat DecimalFormat = new DecimalFormat("#");
     /**
      * Creates new form DonHangMuaJPanel
@@ -63,6 +65,7 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
         initComponents();
         initTable();
         loadData();  
+        loadDataSanPham();
     }
     
     private void initTable(){
@@ -73,6 +76,25 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
         jtbChiTietDonHangMuamodel = new DefaultTableModel();
         jtbChiTietDonHangMuamodel.setColumnIdentifiers(new String[] {"ID","idDonHangMua","TenSanPham","SoLuong","DonGiaApDung","ThanhTien"});
         jtbChiTietDonHangMua.setModel(jtbChiTietDonHangMuamodel);
+        
+        jtbSanPhammodel = new DefaultTableModel();
+        jtbSanPhammodel.setColumnIdentifiers(new String[] {"ID","Tên Sản Phẩm","Loại Sản Phẩm"});
+        jtbSanPham.setModel(jtbSanPhammodel);
+    }
+    private void loadDataSanPham(){
+        try {
+            SanPhamBUS sanPhamBUS = new SanPhamBUS();
+            List<SanPham> list = sanPhamBUS.LoadSanPham(WIDTH);
+            jtbSanPhammodel.setRowCount(0);
+            for(SanPham sp : list){
+                jtbSanPhammodel.addRow(new Object[]{
+                    sp.getID(),sp.getTenSanPham(),sp.getIdLoaiSanPham()
+                });
+                jtbSanPhammodel.fireTableDataChanged();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     private void loadData(){
         try {
@@ -213,11 +235,11 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
         btnThemChiTiet = new javax.swing.JButton();
         btnXoaChiTiet = new javax.swing.JButton();
         btnCapNhatChiTiet = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         btnResetChiTiet = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbChiTietDonHangMua = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jtbSanPham = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Đơn Hàng Mua", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 24), new java.awt.Color(204, 0, 204))); // NOI18N
@@ -508,31 +530,6 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
             }
         });
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        jLabel13.setText("table sản phẩm");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 207, Short.MAX_VALUE)
-                    .addComponent(jLabel13)
-                    .addGap(0, 208, Short.MAX_VALUE)))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 219, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(0, 101, Short.MAX_VALUE)
-                    .addComponent(jLabel13)
-                    .addGap(0, 102, Short.MAX_VALUE)))
-        );
-
         btnResetChiTiet.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\clean-icon3.png"));
         btnResetChiTiet.setText("Reset");
         btnResetChiTiet.addActionListener(new java.awt.event.ActionListener() {
@@ -561,6 +558,19 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jtbChiTietDonHangMua);
 
+        jtbSanPham.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jtbSanPham);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -569,9 +579,25 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnThemChiTiet)
+                                .addGap(54, 54, 54)
+                                .addComponent(btnXoaChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(23, 23, 23)
+                                .addComponent(jtfSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCapNhatChiTiet)
+                        .addGap(47, 47, 47)
+                        .addComponent(btnResetChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel10))
@@ -587,24 +613,8 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jtfidSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
                                     .addComponent(jtfThanhTien))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnThemChiTiet)
-                                .addGap(54, 54, 54)
-                                .addComponent(btnXoaChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(23, 23, 23)
-                                .addComponent(jtfSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCapNhatChiTiet)
-                        .addGap(47, 47, 47)
-                        .addComponent(btnResetChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -639,8 +649,9 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
                     .addComponent(btnResetChiTiet))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -1086,7 +1097,6 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1096,12 +1106,13 @@ public class DonHangMuaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private com.toedter.calendar.JDateChooser jdtNgayLap;
     private javax.swing.JTable jtbChiTietDonHangMua;
     private javax.swing.JTable jtbDonHangMua;
+    private javax.swing.JTable jtbSanPham;
     private javax.swing.JTextField jtfDonGia;
     private javax.swing.JTextField jtfSoLuong;
     private javax.swing.JTextField jtfThanhTien;

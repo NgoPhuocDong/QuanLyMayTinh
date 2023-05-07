@@ -27,6 +27,16 @@ public class ChiTietDonHangBanBUS {
         
         return list.subList(from, Math.min(to,size));
     }
+//    public List LoadChiTietDonHangBan(int page) throws SQLException{
+//        int numfrecords = 100;
+//        ArrayList list = chiTietDAO.readChiTietDonHangBan();
+//        int size = list.size();
+//        int from, to;
+//        from = (page - 1) * numfrecords;
+//        to = page * numfrecords;
+//        
+//        return list.subList(from, Math.min(to,size));
+//    }
     public ChiTietDonHangBan getChiTietDonHangBan(int ID) throws SQLException{
         ChiTietDonHangBan chiTiet = chiTietDAO.getChiTietDonHangBan(ID);
         return chiTiet;

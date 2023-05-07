@@ -80,18 +80,13 @@ public class ThongKeJPanel extends javax.swing.JPanel {
         float Tong = 0;
         try {
             ArrayList<DonHangBan> donHangBans = donHangBanBUS.getHoaDonAll();
-            ArrayList<DonHangMua> donHangMuas = donHangMuaBUS.getHoaDonAll();
             for(DonHangBan dhb : donHangBans){
                 Tong += dhb.getTongTien();
-            }
-            for(DonHangMua dhm : donHangMuas){
-                Tong += dhm.getTongTien();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        jlbDoanhThu.setText(DecimalFormat.format(Tong)+"");
-        jlbDoanhThuaMua.setText(DecimalFormat.format(Tong)+"");
+        jlbDoanhThu.setText(DecimalFormat.format(Tong)+" VND");
 
         return Tong;
     }
@@ -108,7 +103,7 @@ public class ThongKeJPanel extends javax.swing.JPanel {
             e.printStackTrace();
         }
         
-        jlbDoanhThuaMua.setText(DecimalFormat.format(Tong)+"");
+        jlbDoanhThuaMua.setText(DecimalFormat.format(Tong)+" VND");
 
         return Tong;
     }

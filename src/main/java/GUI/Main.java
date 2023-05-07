@@ -38,6 +38,10 @@ public class Main extends javax.swing.JFrame {
         TrangChu_GUI pnTrangChu = new TrangChu_GUI();
         showPanel(pnTrangChu);
         
+        btnClicked();
+        
+        lbHoTenOnline.setText(DangNhap_GUI1.hoTenOnline);
+        
     }
     private void showPanel(JPanel panelName){       
         pnMain.removeAll();
