@@ -45,7 +45,9 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
     private DonHangBan donHangUpdate = new DonHangBan();
     private DonHangBan donHangDelete = new DonHangBan();
     private int donhangbanid;
-    private float tongiten = 0;
+    private float tongtien = 0;
+    private float thanhtientruoc=0;
+    private float thanhtiensau=0;
     
     private DefaultTableModel jtbChiTietDonHangBanmodel;
     private  ChiTietDonHangBanBUS chiTietBUS = new ChiTietDonHangBanBUS();
@@ -130,6 +132,7 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
                         dh.getID(), dh.getIdNhanVienLap(),customerName,dh.getIdTrangThai(), statusName, dh.getNgayLap(), DecimalFormat.format(dh.getTongTien())
                     });
                 }
+                
             }
             jtbDonHangBanmodel.fireTableDataChanged();
             donhangbanid = list.size() + 1;
@@ -711,11 +714,31 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
         try {
             DonHangBanBUS donHangBUS = new DonHangBanBUS();
             List<DonHangBan> list = donHangBUS.findDonHangBan(jtfTimKiem.getText());
+            
+            KhachHangBUS khachHangBUS = new KhachHangBUS();
+            List<KhachHang> listkh = khachHangBUS.LoadKhachHang(WIDTH);
+
+            TrangThaiBanBUS trangThaiBUS = new TrangThaiBanBUS();
+            List<TrangThaiBan> listtt = trangThaiBUS.LoadTrangThaiBan(WIDTH);
             initTable();
             for(DonHangBan donHang : list){
+                List<String> customerNames = new ArrayList<>();
+                List<String> trangThaiBan = new ArrayList<>();
+                // Find all customers with the same ID as the current order's customer ID
+                for (KhachHang kh : listkh) {
+                    if (kh.getID() == donHang.getIdKhachHang()) {
+                        customerNames.add(kh.getTenKhachHang());
+                    }
+                }
+                for (TrangThaiBan tt : listtt) {
+                    if (tt.getID() == donHang.getIdTrangThai()) {
+                        trangThaiBan.add(tt.getTenTrangThai());
+                    }
+                }
+                String customerName = String.join(" ", customerNames);
+                String statusName = String.join(" ", trangThaiBan);
                 jtbDonHangBanmodel.addRow(new Object[]{
-                    donHang.getID(),donHang.getIdNhanVienLap(),donHang.getIdKhachHang(),donHang.getIdTrangThai(),donHang.getNgayLap(),
-                    donHang.getTongTien()
+                    donHang.getID(), donHang.getIdNhanVienLap(),customerName,donHang.getIdTrangThai(), statusName, donHang.getNgayLap(), DecimalFormat.format(donHang.getTongTien())
                 });
             }
         } catch (Exception e) {
@@ -926,7 +949,7 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Sản phẩm không tồn tại");
                 }
                 jtfDonGia.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung()));
-                jtfThanhTien.setText(""+DecimalFormat.format(ctdhb.getDonGiaApDung() * Integer.parseInt(jtfSoLuong.getText()) ) );
+                jtfThanhTien.setText(DecimalFormat.format(ctdhb.getDonGiaApDung() * Integer.parseInt(jtfSoLuong.getText()) ) );
             } catch (Exception e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(this, "Lỗi");
@@ -979,7 +1002,9 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
                     jtfSoLuong.setText(String.valueOf(dh.getSoLuong()));
                     jtfDonGia.setText(String.valueOf(DecimalFormat.format(dh.getDonGiaApDung())));
                     jtfThanhTien.setText(String.valueOf(DecimalFormat.format(dh.getThanhTien())));
+                    
                 }
+                //thanhtientruoc = (float) dh.getThanhTien() ;
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "Lỗi", JOptionPane.ERROR_MESSAGE);
@@ -995,7 +1020,7 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
             return;
         }
         try {
-//            tongiten += jtfThanhTien;
+            tongtien = Float.parseFloat(jtfThanhTien.getText().toString()) + tongtien;  
             if(jtfidDonHangBan.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "nhập lại");
                 return;
@@ -1014,6 +1039,10 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
                 jtfSoLuong.setText("");
                 jtfDonGia.setText("");
                 jtfThanhTien.setText("");
+                jtbChiTietDonHangBanmodel = new DefaultTableModel();
+                jtbChiTietDonHangBanmodel.setColumnIdentifiers(new String[] {"ID","idDonHangBan","TenSanPham","SoLuong","DonGiaApDung","ThanhTien"});
+                jtbChiTietDonHangBan.setModel(jtbChiTietDonHangBanmodel);
+                jtfTongTien.setText(""+DecimalFormat.format(tongtien));
                 loadData();
             }
             else{
@@ -1032,9 +1061,12 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
                 , JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.NO_OPTION){
             return;
         }
+            //tongtien = Float.parseFloat(jtfTongTien.getText());
+        //tongtien = tongtien - Float.parseFloat(jtfThanhTien.getText());
         ChiTietDonHangBanBUS chiTietBUS = new ChiTietDonHangBanBUS();
         if(chiTietBUS.deleteChiTietDonHangBan(chiTietDelete)){
             JOptionPane.showMessageDialog(null, "Xóa thành công");
+            //jtfTongTien.setText(""+DecimalFormat.format(tongtien));
             loadData();
         }
         else{
@@ -1053,7 +1085,9 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Nhập lại");
                 return;
             }
-
+            //tongtien = Float.parseFloat(jtfTongTien.getText());
+            //thanhtiensau = Float.parseFloat(jtfThanhTien.getText());
+            //tongtien = (thanhtiensau-thanhtientruoc)+tongtien;
             chiTiet = this.chiTietUpdate;
             chiTiet.setIdDonHangBan(Integer.parseInt(jtfidDonHangBan.getText()));
             chiTiet.setIdSanPham(Integer.parseInt(jtfidSanPham.getText()));
@@ -1074,6 +1108,10 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
             jtfDonGia.setText("");
             jtfThanhTien.setText("");
             chiTietBUS.updateTongTien(Integer.parseInt(jtfidDonHangBan.getText()));
+            jtbChiTietDonHangBanmodel = new DefaultTableModel();
+        jtbChiTietDonHangBanmodel.setColumnIdentifiers(new String[] {"ID","idDonHangBan","TenSanPham","SoLuong","DonGiaApDung","ThanhTien"});
+        jtbChiTietDonHangBan.setModel(jtbChiTietDonHangBanmodel);
+        //jtfTongTien.setText(""+DecimalFormat.format(tongtien));
             loadData();
         }
         else{
