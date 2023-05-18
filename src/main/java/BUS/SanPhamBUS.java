@@ -22,7 +22,7 @@ public class SanPhamBUS {
         int numfrecords = 100;
         ArrayList list = sanphamDAO.readSanPham();
         int size = list.size();
-        int from, to;
+        int from, to ;
         from = (page - 1) * numfrecords;
         to = page * numfrecords;
         

@@ -254,6 +254,11 @@ public class SanPhamJPanel extends javax.swing.JPanel {
         });
 
         jtfTimKiem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtfTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfTimKiemKeyReleased(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Ngày lập");
@@ -745,8 +750,36 @@ public class SanPhamJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jtbLoaiSanPham3MouseClicked
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
-        // TODO add your handling code here:
+        try {
+            SanPhamBUS SanPhamBUS = new SanPhamBUS();
+            List<SanPham> list = SanPhamBUS.findSanPham(jtfTimKiem.getText());
+            initTable();
+            for(SanPham sp : list){
+                jtbSanPhammodel.addRow(new Object[]{
+                    sp.getID(),sp.getTenSanPham(),sp.getIdLoaiSanPham(),DecimalFormat.format(sp.getGia()),sp.getSoLuong(),sp.getNgaySanXuat(),sp.getMoTa()
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this,"Sản phẩm không tồn tại" , "Cảnh báo", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnTimKiemActionPerformed
+
+    private void jtfTimKiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfTimKiemKeyReleased
+        try {
+            SanPhamBUS SanPhamBUS = new SanPhamBUS();
+            List<SanPham> list = SanPhamBUS.findSanPham(jtfTimKiem.getText());
+            initTable();
+            for(SanPham sp : list){
+                jtbSanPhammodel.addRow(new Object[]{
+                    sp.getID(),sp.getTenSanPham(),sp.getIdLoaiSanPham(),DecimalFormat.format(sp.getGia()),sp.getSoLuong(),sp.getNgaySanXuat(),sp.getMoTa()
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this,"Sản phẩm không tồn tại" , "Cảnh báo", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jtfTimKiemKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
