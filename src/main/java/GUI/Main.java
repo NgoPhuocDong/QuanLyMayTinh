@@ -69,8 +69,6 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
             btnColorOrigin(btnQuanLyPhieuNhap);
-            btnColorOrigin(btnQLKhachhang);
-
         }
         
         
@@ -85,8 +83,6 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);     
             btnColorOrigin(btnQuanLyPhieuNhap);
-            btnColorOrigin(btnQLKhachhang);
-
         }
         
         if (btnClicked == 3){
@@ -99,9 +95,7 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
-            btnColorOrigin(btnQuanLyPhieuNhap);            
-            btnColorOrigin(btnQLKhachhang);
-
+            btnColorOrigin(btnQuanLyPhieuNhap);
         }
         
         
@@ -116,8 +110,6 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
             btnColorOrigin(btnQuanLyPhieuNhap);
-            btnColorOrigin(btnQLKhachhang);
-
         }
         
         if (btnClicked == 5){
@@ -131,8 +123,6 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnTrangChu);
             btnColorOrigin(btnNhanVien);
             btnColorOrigin(btnThongKe);
-            btnColorOrigin(btnQLKhachhang);
-
         }
         
         if (btnClicked == 6){
@@ -146,8 +136,6 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnThongKe);
             btnColorOrigin(btnNhanVien);
             btnColorOrigin(btnQuanLyPhieuNhap);
-            btnColorOrigin(btnQLKhachhang);
-
         }
         
         if (btnClicked == 7){
@@ -159,8 +147,6 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnQuanLyDHBan);
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnThongKe);
-            btnColorOrigin(btnQLKhachhang);
-
         }
         
         if (btnClicked == 8){
@@ -173,21 +159,6 @@ public class Main extends javax.swing.JFrame {
             btnColorOrigin(btnBienBanKiemKe);
             btnColorOrigin(btnNhanVien);
             btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnQLKhachhang);
-
-        }
-        if (btnClicked == 9){
-            btnColorHover(btnQLKhachhang);
-            
-            btnColorOrigin(btnQuanLyPhieuNhap);
-            btnColorOrigin(btnQuanLyNguonHang);
-            btnColorOrigin(btnQuanLySP);
-            btnColorOrigin(btnQuanLyDHBan);
-            btnColorOrigin(btnBienBanKiemKe);
-            btnColorOrigin(btnNhanVien);
-            btnColorOrigin(btnTrangChu);
-            btnColorOrigin(btnThongKe);
-
         }
         
     }
@@ -214,7 +185,6 @@ public class Main extends javax.swing.JFrame {
         btnQuanLyPhieuNhap = new javax.swing.JButton();
         btnNhanVien = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        btnQLKhachhang = new javax.swing.JButton();
         pnMain = new javax.swing.JPanel();
         pnTitileBar = new javax.swing.JPanel();
         lbExit = new javax.swing.JLabel();
@@ -350,7 +320,7 @@ public class Main extends javax.swing.JFrame {
                 btnThongKeActionPerformed(evt);
             }
         });
-        pnMenu.add(btnThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 255, 39));
+        pnMenu.add(btnThongKe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 255, 39));
         pnMenu.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
         pnMenu.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 280, 10));
 
@@ -460,31 +430,6 @@ public class Main extends javax.swing.JFrame {
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         pnMenu.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 200));
 
-        btnQLKhachhang.setBackground(new java.awt.Color(128, 216, 255));
-        btnQLKhachhang.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnQLKhachhang.setIcon(new javax.swing.ImageIcon(System.getProperty("user.dir")+"\\src\\main\\java\\Image\\icons8-staff-26.png"));
-        btnQLKhachhang.setText("Quản lý khách hàng");
-        btnQLKhachhang.setBorder(null);
-        btnQLKhachhang.setBorderPainted(false);
-        btnQLKhachhang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnQLKhachhang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnQLKhachhangMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnQLKhachhangMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnQLKhachhangMouseExited(evt);
-            }
-        });
-        btnQLKhachhang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnQLKhachhangActionPerformed(evt);
-            }
-        });
-        pnMenu.add(btnQLKhachhang, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 255, 39));
-
         pnMain.setBackground(new java.awt.Color(255, 255, 255));
         pnMain.setMinimumSize(new java.awt.Dimension(983, 570));
         pnMain.setPreferredSize(new java.awt.Dimension(983, 570));
@@ -573,9 +518,8 @@ public class Main extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pnMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(pnTitileBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -798,26 +742,6 @@ public class Main extends javax.swing.JFrame {
         showPanel(nhanVienJPanel);
     }//GEN-LAST:event_btnNhanVienActionPerformed
 
-    private void btnQLKhachhangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQLKhachhangMouseClicked
-        btnClicked = 9;
-        btnClicked();
-    }//GEN-LAST:event_btnQLKhachhangMouseClicked
-
-    private void btnQLKhachhangMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQLKhachhangMouseEntered
-        btnColorHover(btnQLKhachhang);
-    }//GEN-LAST:event_btnQLKhachhangMouseEntered
-
-    private void btnQLKhachhangMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQLKhachhangMouseExited
-        if (btnClicked != 9){
-            btnColorOrigin(btnQLKhachhang);
-        }
-    }//GEN-LAST:event_btnQLKhachhangMouseExited
-
-    private void btnQLKhachhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLKhachhangActionPerformed
-        QuanLyKhachHang_GUI quanLyKhachHang_GUI = new QuanLyKhachHang_GUI();
-        showPanel(quanLyKhachHang_GUI);
-    }//GEN-LAST:event_btnQLKhachhangActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -857,7 +781,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton btnBienBanKiemKe;
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnNhanVien;
-    private javax.swing.JButton btnQLKhachhang;
     private javax.swing.JButton btnQuanLyDHBan;
     private javax.swing.JButton btnQuanLyNguonHang;
     private javax.swing.JButton btnQuanLyPhieuNhap;
