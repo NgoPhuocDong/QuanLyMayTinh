@@ -1085,9 +1085,10 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Nhập lại");
                 return;
             }
-            //tongtien = Float.parseFloat(jtfTongTien.getText());
-            //thanhtiensau = Float.parseFloat(jtfThanhTien.getText());
-            //tongtien = (thanhtiensau-thanhtientruoc)+tongtien;
+            tongtien = Float.parseFloat(jtfTongTien.getText());
+            
+            thanhtiensau = Float.parseFloat(jtfThanhTien.getText());
+            tongtien = (thanhtiensau-thanhtientruoc)+tongtien;
             chiTiet = this.chiTietUpdate;
             chiTiet.setIdDonHangBan(Integer.parseInt(jtfidDonHangBan.getText()));
             chiTiet.setIdSanPham(Integer.parseInt(jtfidSanPham.getText()));
@@ -1111,7 +1112,7 @@ public class DonHangBanJPanel extends javax.swing.JPanel {
             jtbChiTietDonHangBanmodel = new DefaultTableModel();
         jtbChiTietDonHangBanmodel.setColumnIdentifiers(new String[] {"ID","idDonHangBan","TenSanPham","SoLuong","DonGiaApDung","ThanhTien"});
         jtbChiTietDonHangBan.setModel(jtbChiTietDonHangBanmodel);
-        //jtfTongTien.setText(""+DecimalFormat.format(tongtien));
+        jtfTongTien.setText(""+DecimalFormat.format(tongtien));
             loadData();
         }
         else{
